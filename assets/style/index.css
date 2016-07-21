@@ -1,0 +1,205 @@
+html {
+	font-size: 14px  !important;
+}
+@media all and (min-width: 304px) {
+	html {
+		font-size: 14px  !important;
+	}
+}
+@media all and (min-width: 376px) {
+	html {
+		font-size: 15px  !important;
+	}
+}
+@media all and (min-width: 448px) {
+	html {
+		font-size: 16px  !important;
+	}
+}
+@media all and (min-width: 520px) {
+	html {
+		font-size: 17px  !important;
+	}
+}
+@media all and (min-width: 592px) {
+	html {
+		font-size: 18px  !important;
+	}
+}
+@media all and (min-width: 664px) {
+	html {
+		font-size: 19px  !important;
+	}
+}
+@media all and (min-width: 736px) {
+	html {
+		font-size: 20px  !important;
+	}
+}
+@media all and (min-width: 808px) {
+	html {
+		font-size: 21px  !important;
+	}
+}
+@media all and (min-width: 880px) {
+	html {
+		font-size: 22px  !important;
+	}
+}
+@media all and (min-width: 952px) {
+	html {
+		font-size: 23px  !important;
+	}
+}
+@media all and (min-width: 1024px) {
+	html {
+		font-size: 24px  !important;
+	}
+}
+/* $start-font-size: 10px;
+$min-width: 304px;
+$offset-width: 72px;
+
+@for $i from 1 to 10 {
+    @media all and (min-width: calc($min-width + $offset-width * $i)) {
+		html {
+			font-size: calc($i + $start-font-size)  !important;
+		}
+	}
+} */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    line-height: 1.42857143  !important;
+    color: #dddddd  !important;
+    background-color: #30292B  !important;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+footer {
+	width: 100%;
+	height: 5rem;
+	background-color: #223333;
+}
+.nav-fixed-top {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+.nav-contain {
+	height: 2.5rem;
+	width: 100%;
+}
+.nav-contain .logo {
+	height: 2.5rem;
+	padding: 0 0 0 0.5rem;
+	display: inline-block;
+}
+.nav-contain .logo a {
+	font-size: 18px;
+}
+.nav-contain .nav-items {
+	padding: 0;
+	margin: 0;
+	height: 2.5rem;
+	float: right;
+}
+.nav-contain .nav-items li {
+	list-style: none;
+	float: left;
+	height: 100%;
+	font-weight: 800;
+}
+.nav-contain a {
+	display: inline-block;
+	height: 2.5rem;
+	padding: 0 0.4rem;
+	color: #dddddd;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 2.5rem;
+	letter-spacing: 1px;
+	background-color: transparent;
+}
+.nav-contain a:hover {
+	color: #333;
+}
+.nav-contain .nav-toggle {
+	display: none;
+}
+.website-header {
+	height: 15rem;
+	width: 100%;
+
+	background: no-repeat center center;
+    background-color: #808080;
+    background-attachment: scroll;
+    background-size: cover;
+    margin-bottom: 50px;
+
+	padding-top: 6.2rem;
+	letter-spacing: 1px;
+	
+	margin-bottom: 60px;
+}
+.website-header h1 {
+	text-align: center;
+	margin: 0;
+	color: #fff;
+}
+.website-header .header-cutline {
+	width: 96px;
+	height: 4px;
+	border: none;
+	background-color: #fff;
+}
+.website-header .header-description {
+	text-align: center;
+}
+
+.sns {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	z-index: 1000;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+.sns li {
+	float: left;
+	height: 4rem;
+	width: 4rem;
+	margin: 0.4rem;
+	border-radius: 50%;
+}
+.sns li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+.sns .sns-github a{
+	background-image: url('../images/home/sns/github.png');
+}
+.sns .sns-weibo a{
+	background-image: url('../images/home/sns/weibo.png');
+}
+.sns .sns-zhihu a{
+	background-image: url('../images/home/sns/zhihu.png');
+}
+.sns .sns-segmentfault a{
+	background-image: url('../images/home/sns/segmentfault.png');
+}
+.sns .sns-twitter a{
+	background-image: url('../images/home/sns/twitter.png');
+}

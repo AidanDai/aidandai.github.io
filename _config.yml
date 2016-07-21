@@ -1,0 +1,76 @@
+# Site settings
+author: Aidan
+title: Aidan's website
+description: Welcome to Aidan's website
+logo: favicon.png
+url: http://localhost:3000
+
+search: true
+comments: true
+
+discus_shortname: Aidan
+
+# Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
+readtime: true
+
+# Specify the average Words per minute. If not defined, 180 will be used
+wpm: 200
+
+# Owner/author information
+owner:
+  name:   Aidan
+  email: webaidandai@gmail.com
+  avatar: avatar.jpg
+  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
+  description:    Junior Front-end Engineer
+
+# Social networking links used in footer. Update and remove as you like.
+github_username: AidanDai
+weibo_username: webAidan
+zhihu_username: Aidan
+segmentfault_username: Aidan
+twitter_username: AidanDai
+
+# Internal nav
+nav:
+ writing: "source_url/writing/"
+ gallery: "source_url/gallery/"
+ about: "source_url/about/"
+
+
+# Server
+destination:      	 ./_site
+port:             	 4000
+
+# Build settings
+highlighter:         rb-pygments
+markdown:           redcarpet
+redcarpet:
+    extensions:     
+     - Hard_wrap
+     - no_intra_emphasis
+     - strikethrough
+     - fenced_code_blocks
+     - autolink
+     - tables
+     - with_toc_data
+     - highlight
+     - footnotes
+    input:          GFM
+sass:
+    style:          :compressed
+paginate: 5
+paginate_path: "/writing/page:num/"
+permalink: "/writing/:title/"
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+slugify: "pretty"
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:   UA-xxxxxxxx-x
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:
+
+gems: [jekyll-paginate]
+
+exclude: [node_modules, gulpfile.js]

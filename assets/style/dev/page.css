@@ -1,0 +1,32 @@
+.website-header {
+	height: 15rem;
+	width: 100%;
+
+	background: no-repeat center center;
+    background-color: #808080;
+    background-attachment: scroll;
+    background-size: cover;
+    margin-bottom: 50px;
+
+	padding-top: 6.2rem;
+	letter-spacing: 1px;
+	
+	margin-bottom: 60px;
+
+	h1 {
+		text-align: center;
+		margin: 0;
+		color: #fff;
+	}
+
+	.header-cutline {
+		width: 96px;
+		height: 4px;
+		border: none;
+		background-color: #fff;
+	}
+
+	.header-description {
+		text-align: center;
+	}
+}

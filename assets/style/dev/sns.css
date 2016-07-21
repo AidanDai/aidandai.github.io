@@ -1,0 +1,42 @@
+.sns {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	z-index: 1000;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+
+	li {
+		float: left;
+		height: 4rem;
+		width: 4rem;
+		margin: 0.4rem;
+		border-radius: 50%;
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			
+			background-size: cover;
+			background-position: center;
+		}
+	}
+
+	.sns-github a{
+		background-image: url('../images/home/sns/github.png');
+	}
+	.sns-weibo a{
+		background-image: url('../images/home/sns/weibo.png');
+	}
+	.sns-zhihu a{
+		background-image: url('../images/home/sns/zhihu.png');
+	}
+	.sns-segmentfault a{
+		background-image: url('../images/home/sns/segmentfault.png');
+	}
+	.sns-twitter a{
+		background-image: url('../images/home/sns/twitter.png');
+	}
+}
