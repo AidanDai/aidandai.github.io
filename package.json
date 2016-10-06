@@ -4,6 +4,7 @@
   "description": "Aidan's website",
   "main": "index.js",
   "dependencies": {
+    "@types/randomcolor": "^0.4.1",
     "simple-jekyll-search": "^1.1.4"
   },
   "devDependencies": {

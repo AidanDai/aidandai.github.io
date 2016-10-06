@@ -1,7 +1,7 @@
 # Site settings
 author: Aidan
-title: Aidan's website
-description: Welcome to Aidan's website
+title: Aidan
+description: Aidan's personal website
 logo: favicon.png
 url: http://localhost:3000
 
@@ -18,11 +18,11 @@ wpm: 200
 
 # Owner/author information
 owner:
-  name:   Aidan
-  email: webaidandai@gmail.com
-  avatar: avatar.jpg
+  name: Aidan
+  #email: webaidandai@gmail.com
+  #avatar: avatar.jpg
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    Junior Front-end Engineer
+  description: Front-end Engineer
 
 # Social networking links used in footer. Update and remove as you like.
 github_username: AidanDai

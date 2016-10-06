@@ -9,9 +9,9 @@ let precss = require('precss'),
   autoprefixer = require('autoprefixer');
   
 module.exports = {
-    entry: "./assets/javascript/entry.js",
+    entry: "./asset/javascript/dev/entry.js",
     output: {
-        path: './assets/javascript/',
+        path: './asset/javascript/',
         filename: "index.js"
     },
     module: {
@@ -25,14 +25,11 @@ module.exports = {
                 }
             },
             {
-                {
-                    test:   /\.css$/,
-                    loader: "style-loader!css-loader!postcss-loader",
-
-                }
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader",
             }
         ]
-    }
+    },
     postcss: function () {
         return [autoprefixer, precss];
     }

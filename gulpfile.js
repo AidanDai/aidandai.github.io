@@ -22,10 +22,10 @@ gulp.task('css', function () {
         autoprefixer({browsers: ['last 1 version']})
     ];
 
-    return gulp.src('./assets/style/dev/*.css')
+    return gulp.src('./asset/style/dev/*.css')
         .pipe(postcss(processors))
         .pipe(concat('index.css'))
-        .pipe(gulp.dest('./assets/style/'));
+        .pipe(gulp.dest('./asset/style/'));
 });
 
 // Task for building blog when something changed:
@@ -35,8 +35,8 @@ gulp.task('build', shell.task(['jekyll build --watch']));
 gulp.task('serve', function () {
     browserSync.init({server: {baseDir: '_site/'}});
     // Reloads page when some of the already built files changed:
-    gulp.watch('./assets/style/dev/*.css', ['css']);
+    gulp.watch('./asset/style/dev/*.css', ["css"]);
     gulp.watch('./_site/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['build', 'serve']);
+gulp.task('default', ['css', 'build', 'serve']);

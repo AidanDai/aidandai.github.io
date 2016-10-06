@@ -1,0 +1,87 @@
+.home-contain {
+	width: 100%;
+	height: 100%;
+
+	position: relative;
+
+	/* background: linear-gradient(to right, #003973 0%, #e5e5be 100%); */
+	background-color: #003973; /* fallback color if gradients are not supported */
+    background-image: -webkit-linear-gradient(right, #003973 0%, #e5e5be 100%); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image:    -moz-linear-gradient(right, #003973 0%, #e5e5be 100%); /* For Firefox (3.6 to 15) */
+    background-image:      -o-linear-gradient(right, #003973 0%, #e5e5be 100%); /* For old Opera (11.1 to 12.0) */ 
+    background-image:         linear-gradient(to right, #003973 0%, #e5e5be 100%); /* Standard syntax; must be last */
+
+	div {
+		width: 20rem;
+		min-width: 300px;
+		height: auto;
+		padding: 20px;
+		background-color: rgba(97, 97, 97, 0.3);
+
+		border-radius: 12px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+
+	}
+
+	h1, h2, h3 {
+		margin: 0;
+		padding: 0;
+
+		font-weight: normal;
+	}
+
+	h1 {
+		font-size: 24px;
+	}
+
+	h2 {
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+	h1, h2 {
+		text-align: center;
+	}
+
+	h3 {
+    	padding: 10px;
+		background-color: rgba(154,154,154,0.5);
+		margin-bottom: 10px;
+
+		border-radius: 6px;
+
+		font-size: 16px;
+	}
+
+	h3:hover {
+		background: rgba(228,228,228,0.7);
+		color: #9c9c9c;
+	}
+
+	h3:hover a {
+		color: #333;
+	}
+
+	p {
+		margin: 0;
+
+		font-size: 16px;
+		text-align: right;
+		color: #fff;
+	}
+
+	a {
+		color: #fff;
+	}
+
+	h3.home-sns{
+		font-size: 20px;
+		a {
+			text-decoration: none;
+		}
+	}
+}
