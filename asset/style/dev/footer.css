@@ -1,48 +1,29 @@
 footer {
-	.link {
+	background-color: #000;
+	padding: 0.5rem 0;
+
+	p {
+		font-size: 16px;
+
+		margin-before: 0;
+    margin-after: 0;
 		margin: 0;
-		padding: 0;
 
-		list-style: none;
-
-		display: flex;
-		justify-content: center;
-
-		li {
-			float: left;
-
-			height: 4rem;
-			width: 4rem;
-			margin: 0.4rem;
-			
-			border-radius: 50%;
-
-			a {
-				display: block;
-				width: 100%;
-				height: 100%;
-				
-				background-size: cover;
-				background-position: center;
-			}
-		}
-
-		.link-github a{
-			background-image: url('../images/home/link/github.png');
-		}
-		.link-weibo a{
-			background-image: url('../images/home/link/weibo.png');
-		}
-		.link-zhihu a{
-			background-image: url('../images/home/link/zhihu.png');
-		}
-		.link-segmentfault a{
-			background-image: url('../images/home/link/segmentfault.png');
-		}
-		.link-twitter a{
-			background-image: url('../images/home/link/twitter.png');
-		}
+		text-align: center;
 	}
 
-	width: 100%;
+	.simply-links {
+		text-align: center;
+
+		a{
+			font-size: 1.8rem;
+			color:#fff;
+
+			margin: 0 5px;
+		}
+		
+		a:hover{
+			color: #aaa;
+		}
+	}
 }
