@@ -1,17 +1,7 @@
----
-layout: default
----
-
 <!-- Page Header -->
 <header class="website-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <h1>share & note</h1>
+    <h1>{{ page.h1 }}</h1>
     <hr class="header-cutline">
     <p class="header-description">{{ page.description }}</p>
 </header>
 <!-- Page Header -->
-
-<!-- Main Content -->
-<div class="container">
-	{{ content }}
-</div>
-<!-- Main Content -->

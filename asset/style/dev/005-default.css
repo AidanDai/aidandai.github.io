@@ -6,8 +6,8 @@ body {
 
 .container {
 	flex: 1;
-	min-height: 1600px;
-	background-image: url("../image/blog/blog-container-bg.png");
+
+	background-image: url("../image/container-bg.png");
 	background-repeat: repeat;
 	background-color: #464646;
 }
