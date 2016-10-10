@@ -1,7 +1,6 @@
 body {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
 }
 
 .container {
@@ -9,5 +8,6 @@ body {
 
 	background-image: url("../image/container-bg.png");
 	background-repeat: repeat;
-	background-color: #464646;
+	background-size: contain;
+	background-color: #e1e1e1;
 }

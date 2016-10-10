@@ -64,10 +64,6 @@ html {
 	}
 }
 
-* {
-	box-sizing: border-box;
-}
-
 html, body {
 	width: 100%;
 	height: 100%;
@@ -190,7 +186,6 @@ footer .simply-links a:hover{
 body {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
 }
 
 .container {
@@ -198,7 +193,8 @@ body {
 
 	background-image: url("../image/container-bg.png");
 	background-repeat: repeat;
-	background-color: #464646;
+	background-size: contain;
+	background-color: #e1e1e1;
 }
 .home-contain {
 	width: 100%;
@@ -269,8 +265,10 @@ body {
 	text-decoration: none;
 }
 .blog-main {
+	box-sizing: border-box;
 	width: 100%;
 	min-height: 800px;
+	padding: 0 1rem;
 	margin: 20px auto;
 
 	flex-direction: column;
@@ -279,8 +277,14 @@ body {
 
 .blog-main article, .blog-main aside {
 	width: 100%;
-	padding: 24px 0;
+	padding: 1rem 0;
+	margin: 0;
 	background-color: #fff;
+}
+
+
+.blog-main aside {
+	margin-top: 20px;
 }
 
 
@@ -288,7 +292,7 @@ body {
 	font-size: 1rem;
 	color: #333;
 	margin: 0;
-	padding: 0 24px;
+	padding: 0 1rem;
 }
 
 
@@ -304,11 +308,12 @@ body {
 
 	}
 	.blog-main article {
-		width: 760px;
-		margin-right: 24px;
+		width: 764px;
+		margin-right: 20px;
 	}
 	.blog-main aside {
 		width: 240px;
+		margin: 0;
 	}
 }
 
@@ -317,34 +322,68 @@ body {
 		width: 100%;
 	}
 	.blog-main article {
-		width: calc(72% - 16px);
-		margin-right: 16px;
+		width: calc(72% - 3rem);
+		margin: 0 1rem;
 		flex: 1;
 	}
 	.blog-main aside {
 		width: 28%;
 		max-width: 240px;
+		margin: 0;
+		margin-right: 1rem;
 	}
 }
 
 @media screen and (min-width: 768px){
 	.blog-main {
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: row;
 	}
 }
-.blog-tag-list div {
+.blog-aside div, .blog-aside ul {
     padding: 12px;
 }
-.blog-tag-list a {
+.blog-aside ul, .blog-aside li {
+    margin: 0;
+}
+.blog-aside li {
+    list-style: none;
+    padding: 0 12px;
+}
+.blog-aside h1 a {
+    color: #888;
+}
+.blog-aside h2 {
+    margin: 0;
+}
+.blog-aside h2 a {
+    font-size: 0.8rem;
+}
+.blog-aside .tag-box a {
     font-size: 16px;
     color: #888;
     border: 1px solid #888;
     border-radius: 12px;
     padding: 2px 8px;
 }
-.blog-tag-list a:hover {
+.blog-aside .category-box a, .blog-aside .author-box a, .blog-aside .archive-box a{
+    display: block;
+    font-size: 16px;
+    padding: 2px 8px;
+}
+.blog-aside a:hover {
     color: #0085a1;
     border-color: #0085a1;
     text-decoration: none;
+}
+.blog-aside .category-box a:hover, .blog-aside .author-box a:hover, .blog-aside .archive-box a:hover {
+    color: #259;
+    text-decoration: underline;
+}
+.blog-aside .post-count{
+    color: #888;
+}
+.blog-aside .archive-mounth {
+    padding: 6px 12px;
 }
