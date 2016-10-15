@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learn ECMAScript2015</title>
+</head>
+<body>
+<script type="text/javascript">
+	let arr = [1, 2, 3, 4, 5],
+	ite = arr[Symbol.iterator]();
+
+console.log(ite);
+
+function* generator () {
+	for(let i=0; i<5; i+=1){
+		yield i;
+	}
+}
+
+let gen = generator();
+
+console.log(gen);
+for(let val of gen){
+	console.log(val);
+}
+</script>
+</body>
+</html>

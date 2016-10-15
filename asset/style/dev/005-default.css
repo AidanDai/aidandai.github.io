@@ -5,6 +5,7 @@ body {
 
 .container {
 	flex: 1;
+	padding: 20px 1rem;
 
 	background-image: url("../image/container-bg.png");
 	background-repeat: repeat;

@@ -1,4 +1,4 @@
-# 自己动手设计 RESTful API
+# 【总结】自己动手设计 RESTful API
 
 本文主要介绍基于 RESTful，如何实现不同的人不同的角色对于不同的资源不同的操作的权限控制。
 
@@ -385,7 +385,7 @@ Token Auth 应用示意图：
 
 - (9) 基于标准化: 你的API可以采用标准化的 JSON Web Token (JWT)。这个标准已经存在多个后端库（.NET, Ruby, Java, Python, PHP）和多家公司的支持（如：Firebase, Google, Microsoft）。
 
->参考博文：
+>参考资料：
 >
 >[JC_Huang：基于RESTful API 怎么设计用户权限控制？](http://www.jianshu.com/p/db65cf48c111)
 >

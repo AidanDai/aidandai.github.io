@@ -2,8 +2,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	min-height: 800px;
-	padding: 0 1rem;
-	margin: 20px auto;
+	margin: 0 auto;
 
 	flex-direction: column;
 

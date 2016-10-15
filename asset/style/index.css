@@ -190,6 +190,7 @@ body {
 
 .container {
 	flex: 1;
+	padding: 20px 1rem;
 
 	background-image: url("../image/container-bg.png");
 	background-repeat: repeat;
@@ -268,8 +269,7 @@ body {
 	box-sizing: border-box;
 	width: 100%;
 	min-height: 800px;
-	padding: 0 1rem;
-	margin: 20px auto;
+	margin: 0 auto;
 
 	flex-direction: column;
 }
@@ -386,4 +386,32 @@ body {
 }
 .blog-aside .archive-mounth {
     padding: 6px 12px;
+}
+
+.code-main {
+	box-sizing: border-box;
+	min-height: 100%;
+	width: 100%;
+	min-width: 300px;
+	padding: 28px 30px;
+	margin: 0;
+
+	background-color: #fff;
+
+	display: flex;
+	justify-content: space-around;
+}
+
+.code-main li {
+	display: inline-block;
+	list-style: none;
+	height: 200px;
+	background-color: red;
+}
+
+@media screen and (min-width: 1024px) {
+	.code-main {
+		width: 1024px;
+		margin: 0 auto;
+	}
 }
