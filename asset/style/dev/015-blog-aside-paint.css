@@ -18,13 +18,6 @@
 			font-size: 0.8rem;
 		}
 	}
-	.tag-box a {
-		font-size: 16px;
-		color: #888;
-		border: 1px solid #888;
-		border-radius: 12px;
-		padding: 2px 8px;
-	}
 	.category-box a, 
 	.author-box a,
 	.archive-box a{

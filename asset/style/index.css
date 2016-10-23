@@ -58,20 +58,15 @@ html {
 	}
 }
 
-@media screen and (max-width: 768px){
-	.nav-contain div.logo {
-		display: none;
-	}
-}
-
 html, body {
 	width: 100%;
 	height: 100%;
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   line-height: 1.42857143  !important;
+  
   color: #dddddd  !important;
   background-color: #fff  !important;
 }
@@ -86,69 +81,91 @@ a:hover {
 }
 .website-header {
 	width: 100%;
-
-	background: no-repeat center center;
-  background-color: #808080;
-  background-attachment: scroll;
-  background-size: cover;
-    
-
-	padding: 6.2rem 0 1rem;
-	letter-spacing: 1px;
+	height: 18rem;
 }
-.website-header h1 {
-	text-align: center;
-	margin: 0;
-	color: #fff;
+.website-header div {
+	padding: 6rem 0 0;
 }
-.website-header .header-cutline {
+.website-header hr {
 	width: 96px;
 	height: 4px;
-	border: none;
-	background-color: #fff;
 }
-.website-header .header-description {
-	text-align: center;
+.website-header {
+  	background-color: #808080; // 图片未加载完时填充颜色
+
+	background-repeat: no-repeat;
+	background-position: center center;
+  	background-size: cover;
 }
-.nav-fixed-top {
+.website-header h1 {
+  	text-align: center;
+  	color: #fff;
+}
+.website-header hr {
+  	border: none;
+  	background-color: #fff;
+}
+.website-header p {
+  	text-align: center;
+}
+.website-header h1, .website-header p {
+  	letter-spacing: 1px;
+}
+@media screen and (max-width: 768px){
+	.nav-contain div.logo {
+		display: none;
+	}
+}
+
+.nav-fixed-top{
 	position: fixed;
 	left: 0;
 	right: 0;
 	z-index: 1000;
 }
+
 .nav-contain {
-	height: 2.5rem;
 	width: 100%;
-	background-color: #888;
-	opacity: 0.8;
+	height: 2.5rem;
 }
+
 .nav-contain .logo {
 	height: 2.5rem;
 	line-height: 2.5rem;
-	padding: 0 0 0 0.5rem;
+	padding-left: 0.5rem;
 	display: inline-block;
 }
-.nav-contain .logo a {
-	font-size: 18px;
-}
+
 .nav-contain .nav-items {
-	padding: 0;
-	margin: 0 1rem 0 0;
 	height: 2.5rem;
 	float: right;
-	display: flex;
+	padding: 0;
+	margin: 0 1rem 0 0;
 }
+
 .nav-contain .nav-items li {
-	list-style: none;
 	float: left;
 	height: 100%;
-	font-weight: 800;
-	text-transform: uppercase;
 }
+
 .nav-contain a {
 	display: inline-block;
 	height: 2.5rem;
 	padding: 0 0.4rem;
+}
+.nav-contain {
+	background-color: #888;
+	opacity: 0.8;
+}
+.nav-contain .logo a {
+	font-size: 1rem;
+}
+.nav-contain .nav-items li {
+	list-style: none;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.nav-contain a {
 	color: #fff;
 	font-size: 12px;
 	font-weight: 800;
@@ -162,14 +179,21 @@ a:hover {
 	text-decoration: none;
 }
 footer {
-	background-color: #000;
 	padding: 0.5rem 0;
 }
 footer p {
-	font-size: 16px;
 	margin-before: 0;
 	margin-after: 0;
 	margin: 0;
+}
+footer .simply-links a{
+	margin: 0 5px;
+}
+footer {
+	background-color: #000;
+}
+footer p {
+	font-size: 16px;
 	text-align: center;
 }
 footer .simply-links {
@@ -178,44 +202,20 @@ footer .simply-links {
 footer .simply-links a{
 	font-size: 1.8rem;
 	color:#fff;
-	margin: 0 5px;
 }
 footer .simply-links a:hover{
 	color: #aaa;
 }
-body {
-	display: flex;
-	flex-direction: column;
-}
-
-.container {
-	flex: 1;
-	padding: 20px 1rem;
-
-	background-image: url("../image/container-bg.png");
-	background-repeat: repeat;
-	background-size: contain;
-	background-color: #e1e1e1;
-}
 .home-contain {
 	width: 100%;
 	height: 100%;
-
 	position: relative;
-
-	/* background: linear-gradient(to right, #003973 0%, #e5e5be 100%); */
-	background-color: #003973; /* fallback color if gradients are not supported */ /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */ /* For Firefox (3.6 to 15) */ /* For old Opera (11.1 to 12.0) */ 
-    background-image:         linear-gradient(to right, #003973 0%, #e5e5be 100%);
 }
-
-/* Standard syntax; must be last */
 .home-contain div {
 	width: 20rem;
 	min-width: 300px;
 	height: auto;
 	padding: 20px;
-	background-color: rgba(97, 97, 97, 0.3);
-	border-radius: 12px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -224,6 +224,28 @@ body {
 .home-contain h1, .home-contain h2, .home-contain h3 {
 	margin: 0;
 	padding: 0;
+}
+.home-contain h2 {
+	margin-bottom: 20px;
+}
+.home-contain h3 {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.home-contain p {
+	margin: 0;
+}
+.home-contain {
+	/* background: linear-gradient(to right, #003973 0%, #e5e5be 100%); */
+	background-color: #003973; /* fallback color if gradients are not supported */ /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */ /* For Firefox (3.6 to 15) */ /* For old Opera (11.1 to 12.0) */ 
+    background-image:         linear-gradient(to right, #003973 0%, #e5e5be 100%);
+}
+/* Standard syntax; must be last */
+.home-contain div {
+	background-color: rgba(97, 97, 97, 0.3);
+	border-radius: 12px;
+}
+.home-contain h1, .home-contain h2, .home-contain h3 {
 	font-weight: normal;
 }
 .home-contain h1 {
@@ -231,15 +253,12 @@ body {
 }
 .home-contain h2 {
 	font-size: 16px;
-	margin-bottom: 20px;
 }
 .home-contain h1, .home-contain h2 {
 	text-align: center;
 }
 .home-contain h3 {
-	padding: 10px;
 	background-color: rgba(154,154,154,0.5);
-	margin-bottom: 10px;
 	border-radius: 6px;
 	font-size: 16px;
 }
@@ -251,7 +270,6 @@ body {
 	color: #333;
 }
 .home-contain p {
-	margin: 0;
 	font-size: 16px;
 	text-align: right;
 	color: #fff;
@@ -265,11 +283,20 @@ body {
 .home-contain h3.home-sns a {
 	text-decoration: none;
 }
+.container {
+	padding: 20px 1rem;
+}
+.container {
+	background-image: url("../image/container-bg.png");
+	background-repeat: repeat;
+	background-size: contain;
+	background-color: #e1e1e1;
+}
 .blog-main {
 	box-sizing: border-box;
+
 	width: 100%;
 	min-height: 800px;
-	margin: 0 auto;
 
 	flex-direction: column;
 }
@@ -302,29 +329,35 @@ body {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1048px) {
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+
 	.blog-main {
-		width: 1024px;
+		width: 1000px;
 
 	}
+
 	.blog-main article {
 		width: 764px;
 		margin-right: 20px;
 	}
+
 	.blog-main aside {
 		width: 240px;
 		margin: 0;
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1048px) {
 	.blog-main {
 		width: 100%;
 	}
 	.blog-main article {
 		width: calc(72% - 3rem);
 		margin: 0 1rem;
-		flex: 1;
 	}
 	.blog-main aside {
 		width: 28%;
@@ -337,9 +370,73 @@ body {
 @media screen and (min-width: 768px){
 	.blog-main {
 		box-sizing: border-box;
+
 		display: flex;
 		flex-direction: row;
 	}
+}
+.post-tag-container a {
+	padding: 2px 10px;
+	border: 1px solid #888;
+	border-radius: 12px;
+
+	font-size: 16px;
+	color: #888;
+}
+
+.post-tag-container a:hover{
+	color: #0085a1;
+	border-color: #0085a1;
+	text-decoration: none;
+}
+
+.post-list-category {
+	padding: 0 16px;
+}
+.post-list {
+	list-style: none;
+	
+	margin: 0;
+	padding: 0;
+
+	color: #000;
+}
+.post-list li {
+	margin: 0 30px 20px;
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+.post-list h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+}
+.post-list .post-type {
+	color: #333;
+}
+.post-list p {
+	margin: 0;
+	padding: 6px 0 6px 12px;
+	font-size: 16px;
+}
+.post-list p span {
+	vertical-align: middle;
+}
+.post-list time {
+	color: #777;
+}
+.post-list .post-des {
+	text-indent: 2em;
+}
+.post-page {
+	text-align: center;
+	margin: 40px 0 20px;
+}
+.post-page a {
+	padding: 0 16px;
+}
+.post-page a:hover {
+	text-decoration: none;
 }
 .blog-aside div, .blog-aside ul {
     padding: 12px;
@@ -359,13 +456,6 @@ body {
 }
 .blog-aside h2 a {
     font-size: 0.8rem;
-}
-.blog-aside .tag-box a {
-    font-size: 16px;
-    color: #888;
-    border: 1px solid #888;
-    border-radius: 12px;
-    padding: 2px 8px;
 }
 .blog-aside .category-box a, .blog-aside .author-box a, .blog-aside .archive-box a{
     display: block;
@@ -387,7 +477,6 @@ body {
 .blog-aside .archive-mounth {
     padding: 6px 12px;
 }
-
 .code-main {
 	box-sizing: border-box;
 	min-height: 100%;

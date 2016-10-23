@@ -1,8 +1,8 @@
 .blog-main {
 	box-sizing: border-box;
+
 	width: 100%;
 	min-height: 800px;
-	margin: 0 auto;
 
 	flex-direction: column;
 
@@ -13,6 +13,7 @@
 
 		background-color: #fff;
 	}
+
 	aside {
 		margin-top: 20px;
 	}
@@ -31,9 +32,14 @@
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1048px) {
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+
 	.blog-main {
-		width: 1024px;
+		width: 1000px;
 
 		article {
 			width: 764px;
@@ -48,15 +54,13 @@
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1048px) {
 	.blog-main {
 		width: 100%;
 
 		article {
 			width: calc(72% - 3rem);
 			margin: 0 1rem;
-
-			flex: 1;
 		}
 
 		aside {
@@ -71,6 +75,7 @@
 @media screen and (min-width: 768px){
 	.blog-main {
 		box-sizing: border-box;
+
 		display: flex;
 		flex-direction: row;
 	}

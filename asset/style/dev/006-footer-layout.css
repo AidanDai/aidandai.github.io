@@ -1,0 +1,15 @@
+footer {
+	padding: 0.5rem 0;
+
+	p {
+		margin-before: 0;
+        margin-after: 0;
+		margin: 0;
+	}
+
+	.simply-links {
+		a{
+			margin: 0 5px;
+		}
+	}
+}

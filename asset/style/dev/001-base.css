@@ -58,20 +58,15 @@ html {
 	}
 }
 
-@media screen and (max-width: 768px){
-	.nav-contain div.logo {
-		display: none;
-	}
-}
-
 html, body {
 	width: 100%;
 	height: 100%;
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   line-height: 1.42857143  !important;
+  
   color: #dddddd  !important;
   background-color: #fff  !important;
 }

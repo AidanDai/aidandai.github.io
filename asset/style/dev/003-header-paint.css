@@ -1,0 +1,25 @@
+.website-header {
+  	background-color: #808080; // 图片未加载完时填充颜色
+
+	background-repeat: no-repeat;
+	background-position: center center;
+  	background-size: cover;
+    
+	h1 {
+		text-align: center;
+		color: #fff;
+	}
+
+	hr {
+		border: none;
+		background-color: #fff;
+	}
+
+	p {
+		text-align: center;
+	}
+
+	h1, p {
+		letter-spacing: 1px;
+	}
+}

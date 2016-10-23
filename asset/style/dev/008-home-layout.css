@@ -1,0 +1,35 @@
+.home-contain {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	div {
+		width: 20rem;
+		min-width: 300px;
+		height: auto;
+		padding: 20px;
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+	}
+
+	h1, h2, h3 {
+		margin: 0;
+		padding: 0;
+	}
+
+	h2 {
+		margin-bottom: 20px;
+	}
+
+	h3 {
+    	padding: 10px;
+		margin-bottom: 10px;
+	}
+	p {
+		margin: 0;
+	}
+}
