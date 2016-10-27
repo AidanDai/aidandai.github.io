@@ -316,7 +316,7 @@ footer .simply-links a:hover{
 
 
 .blog-main h1 {
-	font-size: 1rem;
+	font-size: 24px;
 	color: #333;
 	margin: 0;
 	padding: 0 1rem;
@@ -409,7 +409,7 @@ footer .simply-links a:hover{
 .post-list h2 {
 	margin: 0;
 	padding: 0;
-	font-size: 24px;
+	font-size: 22px;
 }
 .post-list .post-type {
 	color: #333;
@@ -429,8 +429,13 @@ footer .simply-links a:hover{
 	text-indent: 2em;
 }
 .post-page {
-	text-align: center;
 	margin: 40px 0 20px;
+
+	text-align: center;
+	font-size: 20px;
+}
+.post-page span {
+	color: #6b6b6b;
 }
 .post-page a {
 	padding: 0 16px;
@@ -503,4 +508,22 @@ footer .simply-links a:hover{
 		width: 1024px;
 		margin: 0 auto;
 	}
+}
+.tag-list .tag-post-item {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+.tag-list li {
+    border-bottom: none;
+    list-style: none;
+    padding: 0;
+    margin: 0 1rem 0 1rem;
+}
+.tag-list .post-list {
+    padding: 1rem 0;
+}
+.tag-list .post-list ul {
+    margin: 6px 0;
+    padding: 0 1rem;
 }
