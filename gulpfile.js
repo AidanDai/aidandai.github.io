@@ -2,13 +2,7 @@ let gulp = require('gulp'),
 
   less = require('gulp-less'),
   path = require('path'),
-
-  // postcss = require('gulp-postcss'),
-  // rename = require('gulp-rename'),
-  // concat = require('gulp-concat'),
-
-  // precss = require('precss'),
-  // autoprefixer = require('autoprefixer'),
+  cleanCSS = require('gulp-clean-css'),
 
   shell = require('gulp-shell');
   browserSync = require('browser-sync').create();
@@ -18,20 +12,9 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./asset/style'));
 });
-
-// gulp.task('css', function () {
-//     let processors = [
-//         precss(),
-//         autoprefixer({browsers: ['last 1 version']})
-//     ];
-
-//     return gulp.src('./asset/style/dev/*.css')
-//         .pipe(postcss(processors))
-//         .pipe(concat('index.css'))
-//         .pipe(gulp.dest('./asset/style/'));
-// });
 
 // Task for building blog when something changed:
 gulp.task('build', shell.task(['jekyll build --watch']));
