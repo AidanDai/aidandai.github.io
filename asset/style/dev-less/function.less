@@ -1,0 +1,13 @@
+// 生成h标签字体
+// @param  {[type]} @h-step [description]
+// @param  {[type]} @h1     [description]
+// @return {[type]}         [description]
+.generator-h-fot-size(@h-step, @h1){
+	.generate(6);
+	.generate(@n, @i: 1) when (@i =< @n) {
+	  h@{i} {
+	    font-size: (@h1 - @h-step * @i);
+	  }
+	  .generate(@n, (@i + 1));
+	}
+}

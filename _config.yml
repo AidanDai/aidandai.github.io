@@ -33,9 +33,34 @@ twitter_username: AidanDai
 
 # Internal nav
 nav:
- writing: "source_url/writing/"
- gallery: "source_url/gallery/"
+ blog: "source_url/blog/"
+ code: "source_url/code/"
+ like: "source_url/like/"
  about: "source_url/about/"
+ wiki: "source_url/wiki/"
+
+blog-category:
+  web: "web"
+  html: "html"
+  css: "css"
+  less: "less"
+  javascript: "javascript"
+  react: "react.js"
+  react-native: "react-native.js"
+  node: "node.js"
+  koa: "koa"
+  mysql: "mysql"
+  graphql: "GraphQL"
+  c: "c"
+  shell: "shell"
+  java: "java"
+  data-structure: "数据结构"
+  algorithm: "算法"
+  designer-pattern: "设计模式"
+  web-application-architecture : "web 应用架构设计"
+  web-develop-think: "web 开发随想录"
+  special-column: "系列专栏"
+
 
 
 # Server
