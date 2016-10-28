@@ -1,4 +1,14 @@
-# 【总结】自己动手设计 RESTful API
+---
+layout: default
+title: "【总结】自己动手设计 RESTful API"
+author: "Aidan"
+category: "web 应用架构设计"
+tags: "RESTful" "Token Auth"
+date:   2016-03-11
+keyword: "life, 生活感想"
+
+permalink: /post/title.html
+---
 
 本文主要介绍基于 RESTful，如何实现不同的人不同的角色对于不同的资源不同的操作的权限控制。
 
