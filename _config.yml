@@ -32,25 +32,23 @@ segmentfault_username: Aidan
 twitter_username: AidanDai
 
 # Internal nav
-router:
+nav:
   blog: "/blog/"
+  code: "/code/"
+  like: "/like/"
+  about: "/about/"
+  wiki: "/wiki/"
+
+router:
   category: "/blog/category.html"
   tag: "/blog/tag.html"
   author: "/blog/author.html"
   archive: "/blog/archive.html"
 
-  code: "/code/"
-
-  like: "/like/"
-
-  about: "/about/"
- 
-  wiki: "/wiki/"
-
 permalink: "/blog/posts/:title"
 
 paginate: 10
-paginate_path: "page:num"
+paginate_path: "/blog/page:num"
 
 # Server
 destination:      	 ./_site
