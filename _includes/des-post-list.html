@@ -1,6 +1,6 @@
 <ul class="post-list">
 	<!-- 遍历分页后的文章 -->
-	{% for post in site.posts %}
+	{% for post in paginator.posts %}
 	  <li>
 			<h2><span class="post-type">【转载】</span><a href="{{ post.url }}" target="_self">{{ post.title }}</a></h2>
 			<p>
@@ -29,6 +29,56 @@
 		</li>
 	{% endfor %}
 </ul>
+
+<div class="post-page">
+	<!-- first page -->
+	{% if paginator.page == 1 %}
+		<span>
+			<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+		</span>
+	{% else %}
+		<a class="next" href="/blog/" target="_self">
+			<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+		</a>
+	{% endif %}
+
+	<!-- previous page -->
+	{% if paginator.previous_page %}
+    <a class="first" href="{% if paginator.previous_page == 1 %}/blog/{% else %}/blog/page{{ paginator.previous_page }}{% endif %}" target="_self">
+			<i class="fa fa-angle-left" aria-hidden="true"></i>
+		</a>
+  {% else %}
+  	<span>
+  		<i class="fa fa-angle-left" aria-hidden="true"></i>
+  	</span>
+   
+  {% endif %}
+
+	<!-- current_page / total_page -->
+	<span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+
+	<!-- next page -->
+	{% if paginator.next_page %}
+		<a class="next" href="/blog/page{{ paginator.next_page }}" target="_self">
+			<i class="fa fa-angle-right" aria-hidden="true"></i>
+		</a>
+	{% else %}
+		<span>
+			<i class="fa fa-angle-right" aria-hidden="true"></i>
+		</span>
+	{% endif %}
+
+	<!-- last page -->
+	{% if paginator.page == paginator.total_pages %}
+		<span>
+			<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+		</span>
+	{% else %}
+		<a class="last" href="/blog/page{{ paginator.total_pages }}" target="_self">
+			<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+		</a>
+	{% endif %}
+</div>
 
 <!-- 分页链接 -->
 <!-- <div class="pagination">
