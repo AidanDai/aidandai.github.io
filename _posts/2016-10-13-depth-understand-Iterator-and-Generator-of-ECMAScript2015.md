@@ -1,4 +1,12 @@
-# 【总结】深入理解 ECAMScript2016 中的 Iterator 和 Generator
+---
+layout: post
+title: 深入理解 ECAMScript2016 中的 Iterator 和 Generator
+author: "Aidan"
+category: web 应用架构设计
+tags: RESTful Token Auth
+date: 2016-03-11
+keyword: life
+---
 
 # 1 曾经我们写过的代码
 

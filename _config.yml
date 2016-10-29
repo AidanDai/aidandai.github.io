@@ -32,12 +32,25 @@ segmentfault_username: Aidan
 twitter_username: AidanDai
 
 # Internal nav
-nav:
- blog: "source_url/blog/"
- code: "source_url/code/"
- like: "source_url/like/"
- about: "source_url/about/"
- wiki: "source_url/wiki/"
+router:
+  blog: "/blog/"
+  category: "/blog/category.html"
+  tag: "/blog/tag.html"
+  author: "/blog/author.html"
+  archive: "/blog/archive.html"
+
+  code: "/code/"
+
+  like: "/like/"
+
+  about: "/about/"
+ 
+  wiki: "/wiki/"
+
+permalink: "/blog/posts/:title"
+
+paginate: 10
+paginate_path: "page:num"
 
 # Server
 destination:      	 ./_site
@@ -47,22 +60,18 @@ port:             	 4000
 highlighter:         rb-pygments
 markdown:           redcarpet
 redcarpet:
-    extensions:     
-     - Hard_wrap
-     - no_intra_emphasis
-     - strikethrough
-     - fenced_code_blocks
-     - autolink
-     - tables
-     - with_toc_data
-     - highlight
-     - footnotes
-    input:          GFM
-sass:
-    style:          :compressed
-paginate: 5
-paginate_path: "/writing/page:num/"
-permalink: "/writing/:title/"
+  extensions:     
+   - Hard_wrap
+   - no_intra_emphasis
+   - strikethrough
+   - fenced_code_blocks
+   - autolink
+   - tables
+   - with_toc_data
+   - highlight
+   - footnotes
+  input:          GFM
+
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 slugify: "pretty"
 

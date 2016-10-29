@@ -1,0 +1,10 @@
+<section>
+	<h1>
+		<a href="{{ site.router.tag }}" target="_self">Tag</a>
+	</h1>
+	<div class="post-tag-container">
+		{% for tag in site.data.tags %}
+		  <a href="{{ site.router.tag }}#{{ tag.name }}" target="_self">{{ tag.name }}</a>
+		{% endfor %}
+	</div>
+</section>

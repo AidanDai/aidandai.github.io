@@ -1,4 +1,12 @@
-# 【原创】浅析 ThinkJS 中 RESTful API 的设计
+---
+layout: post
+title: 【原创】浅析 ThinkJS 中 RESTful API 的设计
+author: "Aidan"
+category: web 应用架构设计
+tags: RESTful Token Auth
+date: 2016-03-11
+keyword: life
+---
 
 # 1 ThinkJS 中的 RESTful API
 
