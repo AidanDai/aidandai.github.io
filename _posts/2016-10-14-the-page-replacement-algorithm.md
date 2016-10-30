@@ -1,14 +1,19 @@
 ---
 layout: post
-title: 【总结】自己动手设计 RESTful API
-author: "Aidan"
-category: web 应用架构设计
-tags: RESTful Token Auth
-date: 2016-03-11
-keyword: life
----
+h1: "share & note"
+description: "The worst pen is better than the best memory!"
+header-img: "./asset/image/blog/blog-bg-001.jpg"
 
-# 【总结】操作系统页面置换算法简介
+title: 操作系统页面置换算法简介
+type: 【总结】
+category: 算法
+tags: 算法 操作系统
+
+keyword: 算法 操作系统 页面置换算法 操作系统页面置换算法
+
+author: Aidan
+date: 2016-10-14
+---
 
 本文介绍操作系统几种常用的页面置换算法。
 

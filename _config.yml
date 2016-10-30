@@ -45,9 +45,9 @@ router:
   author: "/blog/author.html"
   archive: "/blog/archive.html"
 
-permalink: "/blog/posts/:title.html"
+permalink: "/posts/:title.html"
 
-paginate: 10
+paginate: 2
 paginate_path: "/blog/page:num"
 
 # Server

@@ -1,12 +1,21 @@
 ---
 layout: post
-title: 【原创】浅析 ThinkJS 中 RESTful API 的设计
-author: "Aidan"
+h1: "share & note"
+description: "The worst pen is better than the best memory!"
+header-img: "./asset/image/blog/blog-bg-001.jpg"
+
+title: 浅析 ThinkJS 中 RESTful API 的设计
+type: 【原创】
 category: web 应用架构设计
-tags: RESTful Token Auth
-date: 2016-03-11
-keyword: life
+tags: Think.js RESTful
+
+keyword: Think.js RESTful
+
+author: Aidan
+date: 2016-10-09
 ---
+
+本文简单分析一下 Think.js 中 RESTful API 的设计。
 
 # 1 ThinkJS 中的 RESTful API
 

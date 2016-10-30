@@ -4,7 +4,7 @@
 	  <li>
 			<h2><span class="post-type">【转载】</span><a href="{{ post.url }}" target="_self">{{ post.title }}</a></h2>
 			<p>
-				<span><time>{{ post.date }}</time></span>
+				<span><time>{{ post.date | date: "%Y-%m-%d"}}</time></span>
 				<span class="point"> • </span>
 				<span>
 					<a  href="{{ site.router.author }}#{{ post.author }}" target="_self" class="author">{{ post.author }}</a>

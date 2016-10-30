@@ -1,11 +1,18 @@
 ---
 layout: post
-title: 【总结】自己动手设计 RESTful API
-author: Aidan
+h1: "share & note"
+description: "The worst pen is better than the best memory!"
+header-img: "./asset/image/blog/blog-bg-001.jpg"
+
+title: 自己动手设计 RESTful API
+type: 【总结】
 category: web 应用架构设计
-tags: RESTful Token-Auth
-date: 2016-03-11
-keyword: life
+tags: RESTful Auth
+
+keyword: RESTful-API Token-Auth
+
+author: Aidan
+date: 2016-10-08
 ---
 
 
