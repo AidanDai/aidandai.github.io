@@ -3,8 +3,8 @@
 		<a href="{{ site.router.tag }}" target="_self">Tag</a>
 	</h1>
 	<div class="post-tag-container">
-		{% for tag in site.data.tags %}
-		  <a href="{{ site.router.tag }}#{{ tag.name }}" target="_self">{{ tag.name }}</a>
+		{% for tag in site.tags %}
+		  <a href="{{ site.router.tag }}#{{ tag[0]}}" target="_self">{{ tag[0] }}</a>
 		{% endfor %}
 	</div>
 </section>

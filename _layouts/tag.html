@@ -12,7 +12,7 @@ layout: default
 					<ul>
 						{% for post in tag[1] %}
 							<li class="tag-post-item">
-								<span class="post-type">【转载】</span><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+								<span class="post-type">{{ post.type }}</span><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 								<!-- <span class="post-list-tags">
 									<span><i class="fa fa-tags" aria-hidden="true"></i></span>
 									<span class="post-tag-container">
@@ -29,7 +29,5 @@ layout: default
 			{% endfor %}
 		</ul>
 	</article>
-	<aside class="blog-aside">
-		{% include blog-aside.html %}
-	</aside>
+	{% include blog-aside.html %}
 </div>

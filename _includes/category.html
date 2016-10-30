@@ -4,7 +4,9 @@
 	</h1>
 	<div class="category-box">
 		{% for category in site.data.categorys %}
-		  <a href="{{ site.router.category }}#{{ category.name }}" target="_self">{{ category.name }}<span class="post-count">（234）</span></a>
+			{% if category.public %}
+		  <a href="{{ site.router.category }}#{{ category.name }}" target="_self">{{ category.name }}<!-- <span class="post-count">（234）</span> --></a>
+		  {% endif %}
 		{% endfor %}
 	</div>
 </section>

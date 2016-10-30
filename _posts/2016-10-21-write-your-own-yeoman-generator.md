@@ -12,7 +12,7 @@ tags: yeoman
 keyword: yeoman gulp webpack react
 
 author: Aidan
-date: 2016-10-21
+date: 2015-10-21
 ---
 
 由于自己经常会写一些 demo，或者学习新工具库的使用，然后又比较依赖 npm 的模块管理（这个是重点）和 webpack 的代码打包功能，所以每次都要创建一个目录结构，复制各种 .rc 文件，复制 webpack 的配置文件，复制一个应用了 webpack dev 中间件的 express server，每次都要这样，让我心里很烦。

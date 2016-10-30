@@ -2,7 +2,9 @@
 	<h1><a href="{{ site.router.author }}" target="_self">Author</a></h1>
 	<div class="author-box">
 		{% for author in site.data.authors %}
-			 <a href="{{ site.router.author }}#{{ author.name }}" target="_self">{{ author.name }}<span class="post-count">（234）</span></a>
+			{% if author.public %}
+			<a href="{{ site.router.author }}#{{ author.name }}" target="_self">{{ author.name }}<!-- <span class="post-count">（234）</span> --></a>
+			{% endif %}
 		{% endfor %}
 	</div>
 </section>

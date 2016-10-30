@@ -3,120 +3,20 @@ layout: default
 ---
 
 <div class="blog-main">
-	<article class="tag-list">
+	<article class="archive-list">
 		<h1>Archives</h1>
-{% for post in site.posts %}
-	{% capture ym %}
-		{{ post.date | date: "%Y %B" }}
-	{% endcapture %}
-
-	{% if yearmonth != ym %}
-		{% assign yearmonth = ym %}
-		</ul>
-			<blockquote id="{{ ym }}">{{ ym }}</blockquote>
-		<ul>
-	{% endif %}
-
-	<li>
-		<span class="post-type">【转载】</span>
-		<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-		<!-- <span class="post-list-category">
-			<span><i class="fa fa-th-list" aria-hidden="true"></i></span>
-			<span class="post-category">
-				<a  href="/blog/category" target="_self">web</a>
-			</span>
-		</span>
-		<span class="post-list-tags">
-			<span><i class="fa fa-tags" aria-hidden="true"></i></span>
-			<span class="post-tag-container">
-				<a href="/blog/tag" target="_self">flex</a>
-				<a href="/blog/tag" target="_self">layout</a>
-				<a href="/blog/tag" target="_self">layout</a>
-				<a href="/blog/tag" target="_self">layout</a>
-			</span> -->
-		</span>
-	</li>
-{% endfor %}
-		<!-- <ul class="post-list">
-			<li id="flex">
-				<h2>2016（324）</h2>
-				<ul>
-					<li class="post-archive">
-						<h3>September（234）</h3>
-						<ul>
-							<li class="tag-post-item">
-								<span class="post-type">【转载】</span>
-								<a href="/blog/post/" target="_self">都 2015 年了，CSS 怎么还是这么糟糕?</a>
-								<span class="post-list-category">
-									<span><i class="fa fa-th-list" aria-hidden="true"></i></span>
-									<span class="post-category">
-										<a  href="/blog/category" target="_self">web</a>
-									</span>
-								</span>
-								<span class="post-list-tags">
-									<span><i class="fa fa-tags" aria-hidden="true"></i></span>
-									<span class="post-tag-container">
-										<a href="/blog/tag" target="_self">flex</a>
-										<a href="/blog/tag" target="_self">layout</a>
-										<a href="/blog/tag" target="_self">layout</a>
-										<a href="/blog/tag" target="_self">layout</a>
-									</span>
-								</span>
-							</li>
-							<li class="tag-post-item">
-								<span class="post-type">【转载】</span><a href="/blog/post/" target="_self">JavaScript 跨域解决方案总结</a>
-								<span class="post-list-category">
-									<span><i class="fa fa-th-list" aria-hidden="true"></i></span>
-									<span class="post-category">
-										<a  href="/blog/category" target="_self">web</a>
-									</span>
-								</span>
-									<span class="post-list-tags">
-										<span><i class="fa fa-tags" aria-hidden="true"></i></span>
-										<span class="post-tag-container">
-											<a href="/blog/tag" target="_self">cookie</a>
-											<a href="/blog/tag" target="_self">domain</a>
-										</span>
-									</span>
-								
-							</li>
-							<li class="tag-post-item">
-								<span class="post-type">【转载】</span><a href="/blog/post/" target="_self">PHP 格式化数组输出样式</a>
-								<span class="post-list-category">
-								<span><i class="fa fa-th-list" aria-hidden="true"></i></span>
-								<span class="post-category">
-									<a  href="/blog/category" target="_self">web</a>
-								</span>
-							</span>
-									<span class="post-list-tags">
-										<span><i class="fa fa-tags" aria-hidden="true"></i></span>
-										<span class="post-tag-container">
-											<a href="/blog/tag" target="_self">php</a>
-										</span>
-									</span>
-								
-							</li>
-							<li class="tag-post-item">
-								<span class="post-type">【转载】</span><a href="/blog/post/" target="_self">XSS 攻击与防御</a>
-								<span class="post-list-category">
-								<span><i class="fa fa-th-list" aria-hidden="true"></i></span>
-								<span class="post-category">
-									<a  href="/blog/category" target="_self">web</a>
-								</span>
-							</span>
-									<span class="post-list-tags">
-										<span><i class="fa fa-tags" aria-hidden="true"></i></span>
-										<span class="post-tag-container">
-											<a href="/blog/tag" target="_self">XSS</a>
-										</span>
-									</span>
-								
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-		</ul> -->
+		{% for post in site.posts %}
+			{% capture ym %}{{ post.date | date: "%Y-%B" }}{% endcapture %}
+			{% if yearmonth != ym %}
+				{% assign yearmonth = ym %}
+					<h2 id="{{ ym }}">{{ ym }}</h2>
+			{% endif %}
+			<p>
+					<span class="post-type">{{ post.type }}</span>
+					<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+					</span>
+			<p>	
+		{% endfor %}
 	</article>
 	{% include blog-aside.html %}
 </div>

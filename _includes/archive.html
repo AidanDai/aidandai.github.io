@@ -1,7 +1,14 @@
 <section>
 	<h1><a href="{{ site.router.archive }}" target="_self">Archive</a></h1>
 	<ul class="archive-box">
-		{% for years in site.data.archives %}
+		{% for post in site.posts %}
+			{% capture ym %}{{ post.date | date:"%Y-%B" }}{% endcapture %}
+			{% if yearmonth != ym %}
+				{% assign yearmonth = ym %}
+				<a href="{{ site.router.archive }}#{{ ym }}" target="_self">{{ ym }}</a>
+			{% endif %}
+		{% endfor %}
+		<!-- {% for years in site.data.archives %}
 			<li>
 				<h2>
 					<a href="{{ site.router.archive }}#{{ years.year }}" target="_self">{{ years.year }}<span class="post-count">（234）</span></a>
@@ -13,6 +20,6 @@
 				</div>
 			</li>
 		  <a href="{{ site.router.tag }}#{{ tag.name }}" target="_self">{{ tag.name }}</a>
-		{% endfor %}
+		{% endfor %} -->
 	</ul>
 </section>
