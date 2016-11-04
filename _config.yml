@@ -55,20 +55,33 @@ destination:      	 ./_site
 port:             	 4000
 
 # Build settings
-highlighter:         rb-pygments
-markdown:           redcarpet
-redcarpet:
-  extensions:     
-   - Hard_wrap
-   - no_intra_emphasis
-   - strikethrough
-   - fenced_code_blocks
-   - autolink
-   - tables
-   - with_toc_data
-   - highlight
-   - footnotes
-  input:          GFM
+# highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  enable_coderay: true
+  syntax_highlighter: rouge
+  coderay:
+    coderay_line_numbers:  nil
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+
+# highlighter:        rb-pygments
+# markdown:           redcarpet
+# redcarpet:
+#   extensions:     
+#    - Hard_wrap
+#    - no_intra_emphasis
+#    - strikethrough
+#    - fenced_code_blocks
+#    - autolink
+#    - tables
+#    - with_toc_data
+#    - highlight
+#    - footnotes
+  # input:          GFM
 
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 slugify: "pretty"
