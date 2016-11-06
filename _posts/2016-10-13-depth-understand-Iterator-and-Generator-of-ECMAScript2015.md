@@ -610,7 +610,7 @@ it.next()
 值得注意的是：扩展运算符遍历函数返回的遍历器对象和 `yield*` 语句遍历函数返回的遍历器对象。这两次遍历的效果是叠加的。
 
 ```javascript
-yield*命令可以很方便地取出嵌套数组的所有成员。
+// yield* 命令可以很方便地取出嵌套数组的所有成员。
 
 function* iterTree(tree) {
   if (Array.isArray(tree)) {
