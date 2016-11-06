@@ -5,7 +5,7 @@ description: "The worst pen is better than the best memory!"
 header-img: "./asset/image/blog/blog-bg-001.jpg"
 
 title: 深入理解 ECAMScript2016 中的 Iterator 和 Generator
-type: 【总结】
+type: 【整理】
 category: javascript
 tags: ECAMScript2016 Iterator Generator
 

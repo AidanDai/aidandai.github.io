@@ -5,7 +5,7 @@ description: "The worst pen is better than the best memory!"
 header-img: "./asset/image/blog/blog-bg-001.jpg"
 
 title: 写一个你自己的 yeoman 生成器
-type: 【总结】
+type: 【整理】
 category: web
 tags: yeoman
 

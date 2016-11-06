@@ -5,7 +5,7 @@ description: "The worst pen is better than the best memory!"
 header-img: "./asset/image/blog/blog-bg-001.jpg"
 
 title: 自己动手设计 RESTful API
-type: 【总结】
+type: 【整理】
 category: web 应用架构设计
 tags: RESTful Auth
 

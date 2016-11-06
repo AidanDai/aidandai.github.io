@@ -5,7 +5,7 @@ description: "The worst pen is better than the best memory!"
 header-img: "./asset/image/blog/blog-bg-001.jpg"
 
 title: 操作系统页面置换算法简介
-type: 【总结】
+type: 【整理】
 category: 算法
 tags: 算法 操作系统
 
