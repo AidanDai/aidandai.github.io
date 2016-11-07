@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: "../asset/image/blog/blog-bg-001.png"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 享受更好的睡眠
 type: 【原创】
@@ -15,21 +15,14 @@ author: Aidan
 date: 2016-11-06
 ---
 
-最近白天老是感觉很困，没有精神；可是每天晚上的睡眠时间也基本一致，而且最近作息时间比较规律，没有熬夜也没有起的特别早。看了看手环最近一段时间睡眠报告，就像下面这样：
+最近白天老是感觉很困，没有精神；可是每天晚上的睡眠时间也基本一致，而且最近作息时间比较规律，没有熬夜、也没起的特别早。看了看手环最近一段时间睡眠报告，就像下面这样：
 
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/001.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/002.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/003.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/004.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/005.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/006.png)
-
-![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/007.png)
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/001.png "group-picture") 
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/002.png "group-picture") 
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/003.png "group-picture") 
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/004.png "group-picture") 
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/005.png "group-picture") 
+![睡眠报告](../asset/image/blog/2016-11-06-enjoy-better-sleep/007.png "group-picture")
 
 总体来看只要睡得时间足够长，休息效果就不错，但是也有睡眠时间较少，但是休息效果却很显著的。休息效果显著的差不多都是深睡眠时间在三小时左右，不少于两个小时吧。让我感觉很惊讶的是有几天睡眠时间差不多，但是深度睡眠时间差了好多，为什么会这样呢？每天活动都差不多，睡眠时间也差不多；为什么深度睡眠的时间，会有这么大的差距呢？想到这里，我觉得要充分让自己进入深度睡眠，这样才能在有限的时间内得到充足的休息！下面我便向大家介绍下我自己整理的方法。
 

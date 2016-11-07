@@ -20,10 +20,15 @@
 		padding: 1rem;
 
 		img {
-			display: inline-block;
+			display: block;
 			width: auto;
 			max-width: 100%;
 			height: auto;
+			margin: 0 auto;
+
+			&[title="group-picture"] {
+				display: inline-block;
+			}
 		}
 
 		blockquote {
@@ -276,3 +281,45 @@
 		}
 	}
 }
+
+// support task
+.ballot_box_with_check:before {
+  content: "\2611\ ";
+}
+.ballot_box:before {
+  content: "\2610\ ";
+}
+
+// /*滚动条宽度*/  
+// .post-toc ::-webkit-scrollbar,  
+// .highlighter-rouge ::-webkit-scrollbar {  
+//     width: 8px;  
+// }    
+// /* 轨道样式 */  
+// .post-toc ::-webkit-scrollbar-track,
+// .highlighter-rouge ::-webkit-scrollbar-track{  
+  
+// }  
+// /* Handle样式 */  
+// .post-toc ::-webkit-scrollbar-thumb,
+// .highlighter-rouge ::-webkit-scrollbar-thumb {  
+//     border-radius: 10px;  
+//     background: rgba(0,0,0,0.2);   
+// }   
+// /*当前窗口未激活的情况下*/  
+// .post-toc ::-webkit-scrollbar-thumb:window-inactive,
+// .highlighter-rouge ::-webkit-scrollbar-thumb:window-inactive {  
+//     background: rgba(0,0,0,0.1);   
+// }  
+// /*hover到滚动条上*/  
+// .post-toc ::-webkit-scrollbar-thumb:vertical:hover,
+// .highlighter-rouge ::-webkit-scrollbar-thumb:vertical:hover{  
+//     background-color: rgba(0,0,0,0.3);  
+// }  
+// /*滚动条按下*/  
+// .post-toc ::-webkit-scrollbar-thumb:vertical:active,
+// .highlighter-rouge ::-webkit-scrollbar-thumb:vertical:active{  
+//     background-color: rgba(0,0,0,0.7);  
+// }  
+
+

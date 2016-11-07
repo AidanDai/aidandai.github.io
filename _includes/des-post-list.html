@@ -2,7 +2,7 @@
 	<!-- 遍历分页后的文章 -->
 	{% for post in paginator.posts %}
 	  <li>
-			<h2><span class="post-type">【转载】</span><a href="{{ post.url }}" target="_self">{{ post.title }}</a></h2>
+			<h2><span class="post-type">{{ post.type }}</span><a href="{{ post.url }}" target="_self">{{ post.title }}</a></h2>
 			<p>
 				<span><time>{{ post.date | date: "%Y-%m-%d"}}</time></span>
 				<span class="point"> • </span>

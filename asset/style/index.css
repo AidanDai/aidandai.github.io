@@ -318,10 +318,14 @@ footer .simply-links a:hover {
   padding: 1rem;
 }
 .blog-main article img {
-  display: inline-block;
+  display: block;
   width: auto;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
+}
+.blog-main article img[title="group-picture"] {
+  display: inline-block;
 }
 .blog-main article blockquote {
   border-left: 10px solid #ccc;
@@ -521,6 +525,12 @@ footer .simply-links a:hover {
 }
 .tag-list li.post-archive h3 {
   margin: 0;
+}
+.ballot_box_with_check:before {
+  content: "\2611\ ";
+}
+.ballot_box:before {
+  content: "\2610\ ";
 }
 /* Monokai Theme from https://github.com/richleland/pygments-css/blob/master/monokai.css */
 .highlight {
