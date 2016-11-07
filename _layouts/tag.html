@@ -12,7 +12,8 @@ layout: default
 					<ul>
 						{% for post in tag[1] %}
 							<li class="tag-post-item">
-								<span class="post-type">{{ post.type }}</span><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+								<span class="post-type">{{ post.type }}</span>
+								<a href="{{ post.url }}" title="{{ post.title }}" target="_self">{{ post.title }}</a>
 								<!-- <span class="post-list-tags">
 									<span><i class="fa fa-tags" aria-hidden="true"></i></span>
 									<span class="post-tag-container">

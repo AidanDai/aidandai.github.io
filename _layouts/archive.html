@@ -12,9 +12,8 @@ layout: default
 					<h2 id="{{ ym }}">{{ ym }}</h2>
 			{% endif %}
 			<p>
-					<span class="post-type">{{ post.type }}</span>
-					<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-					</span>
+				<span class="post-type">{{ post.type }}</span>
+				<a href="{{ post.url }}" title="{{ post.title }}" target="_self">{{ post.title }}</a>
 			<p>	
 		{% endfor %}
 	</article>
