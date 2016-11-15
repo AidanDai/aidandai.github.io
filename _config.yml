@@ -8,7 +8,8 @@ url: http://localhost:3000
 search: true
 comments: true
 
-discus_shortname: Aidan
+# discus_shortname: Aidan
+duoshuo_shortname: aidandai
 
 # Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
 readtime: true
@@ -62,11 +63,17 @@ kramdown:
   enable_coderay: true
   syntax_highlighter: rouge
   coderay:
-    coderay_line_numbers:  nil
+    coderay_line_numbers: inline
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 2
+    coderay_bold_every: 10
+    coderay_css: style
   extensions:
     - autolink
     - footnotes
     - smart
+    - tables
+
 
 # highlighter:        rb-pygments
 # markdown:           redcarpet

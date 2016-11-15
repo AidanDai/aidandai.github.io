@@ -1,0 +1,72 @@
+body {
+	margin: 0;
+
+	box-sizing: border-box;
+	padding: 20px 0;
+
+
+	min-width: 1020px;
+}
+
+#waterfall {
+	margin: 0 auto;
+
+	box-sizing: border-box;
+	padding: 0 20px;
+
+	background-color: #ccc;
+}
+
+.column {
+	width: 180px;
+	margin-left: 20px;
+
+	float: left;
+}
+.column:nth-child(1){
+	margin: 0;
+}
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+}
+.cf:after { clear: both; }
+.cf { zoom: 1; }/* For IE 6/7 (trigger hasLayout) */
+
+img {
+	width: 100%;
+	margin: 5px 0;
+	
+	color: #333;
+
+	display: block;
+}
+
+.loading-temp {
+	width: 100%;
+	display: block;
+	
+	margin: 0;
+	background-size: contain;
+	background-image: url("../../image/loading.png");
+	background-repeat: no-repeat;
+}
+
+.loading {
+	width: 220px;
+	height: 30px;
+	line-height: 30px;
+	margin: 30px auto;
+	border-radius: 6px;
+
+	background-color: #000;
+	color: #fff;
+
+	text-align: center;
+	clear: both;
+
+	display: none;
+}
