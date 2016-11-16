@@ -127,7 +127,7 @@ for (let char of "Aidan") {
 |:----|:----|
 |next |  返回一个对象的无参函数，被返回对象拥有两个属性：<br/>  done (boolean) <br/> 如果迭代器已经经过了被迭代序列时为 true。这时 value <br/> 可能描述了该迭代器的返回值。返回值在这里有更多解释。 <br/> 如果迭代器可以产生序列中的下一个值，则为 false。这等效于连同 done 属性也不指定。<br/> value - 迭代器返回的任何 JavaScript 值。done 为 true 时可省略。|
 
-具体请参考：[Javascript | MDN：迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
+具体请参考：[Javascript(MDN：迭代协议)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 ## 2.2 实现可遍历对象
 

@@ -300,6 +300,9 @@ footer .simply-links a:hover {
   background-size: contain;
   background-color: #e1e1e1;
 }
+.share {
+  margin: 20px 0 40px;
+}
 .blog-main {
   box-sizing: border-box;
   width: 100%;
@@ -316,6 +319,10 @@ footer .simply-links a:hover {
 .blog-main article {
   box-sizing: border-box;
   padding: 1rem;
+}
+.blog-main article .highlighter-rouge {
+  color: #f92672;
+  font-weight: 900;
 }
 .blog-main article img {
   display: block;
@@ -534,6 +541,38 @@ code {
 }
 .ballot_box:before {
   content: "\2610\ ";
+}
+.post-header {
+  margin: 20px 0 40px;
+}
+.post-header h1 {
+  font-size: 30px;
+  margin: 0;
+}
+.post-header p {
+  margin: 0;
+  padding-left: 20px;
+}
+.post-header p .page-list-category {
+  padding: 0 20px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td,
+table th {
+  border: 1px solid #CCC;
+  padding: 4px;
+}
+#markdown-toc {
+  width: 200px;
+  margin: 0;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
 }
 /* Monokai Theme from https://github.com/richleland/pygments-css/blob/master/monokai.css */
 .highlight {
@@ -790,4 +829,27 @@ code {
 .highlight {
   background-color: #333;
   padding: 1rem;
+}
+.code-main {
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  min-width: 300px;
+  padding: 28px 30px;
+  margin: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+}
+.code-main li {
+  display: inline-block;
+  list-style: none;
+  height: 200px;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .code-main {
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
