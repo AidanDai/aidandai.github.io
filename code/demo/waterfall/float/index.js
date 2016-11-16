@@ -8,7 +8,7 @@ var DATA = {
 };
 
 function imgPath(index){
-	return "../image/" + "p_" + String(index).replace(/\d+/g, function(m){
+	return "../image/" + "P_" + String(index).replace(/\d+/g, function(m){
 		return "0".repeat(3 - m.length) + m + ".jpg";
 	});
 }
