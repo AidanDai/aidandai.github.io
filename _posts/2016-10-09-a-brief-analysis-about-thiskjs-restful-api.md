@@ -98,6 +98,6 @@ date: 2016-10-09
 >  view_after: [],
 >  response_end: []
 >};
->```javascript
+>```
 
 ThinkJS 中的 hook 列表，看到这里我真是一脸懵逼。框架中默认 hook 列表 的执行顺序（PS：貌似无法直接调整hook 列表的执行顺序，只能编辑和选择性执行 hook）让人无法理解。如果要设计 RESTful API，`hook 中为什么会把 route_parse 放在后面，而把 payload_parse、payload_validate 和 resource 放在前面；这样如何进行权限管理，怎么实现对资源的浏览、创建、更新、删除呢？`，这样的处理流程怎么设计 RESTful API 呢？

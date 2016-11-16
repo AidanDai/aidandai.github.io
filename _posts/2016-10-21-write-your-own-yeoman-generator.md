@@ -33,7 +33,7 @@ date: 2015-10-21
 
 （2）安装 yeoman 
 
-```
+```bash
 npm install -g yo
 ```
 
@@ -45,7 +45,7 @@ npm install -g yo
 
 然后这里是安装和使用的命令，不具体介绍它的使用了，想学的话可以去 它的[官网(http://yeoman.io/)](http://yeoman.io/) 看看。
 
-```
+```bash
 npm install -g yo
 npm install -g generator-angular
 

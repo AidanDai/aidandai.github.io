@@ -526,6 +526,9 @@ footer .simply-links a:hover {
 .tag-list li.post-archive h3 {
   margin: 0;
 }
+code {
+  color: #fff;
+}
 .ballot_box_with_check:before {
   content: "\2611\ ";
 }
