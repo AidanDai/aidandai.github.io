@@ -39,6 +39,7 @@ nav:
   like: "/like/"
   about: "/about/"
   wiki: "/wiki/"
+  resume: "/resume/"
 
 router:
   category: "/blog/category.html"
