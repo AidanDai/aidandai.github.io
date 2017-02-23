@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: "./asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 自己动手设计 RESTful API
 type: 【整理】
@@ -15,10 +15,10 @@ author: Aidan
 date: 2016-10-08
 ---
 
-
 本文主要介绍基于 RESTful，如何实现不同的人不同的角色对于不同的资源不同的操作的权限控制。
 
-[TOC]
+* TOC
+{:toc}
 
 # 1 RESTful API 简介
 

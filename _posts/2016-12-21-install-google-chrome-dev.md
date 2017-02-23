@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: ".../asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: ubuntu 16.04 安装 Google Chrome dev
 type: 【整理】
@@ -16,10 +16,10 @@ author: Aidan
 date: 2016-12-21
 ---
 
+ubuntu 公司估计和 Google 公司有些许不同意见，直接使用 apt-get ，还是图形软件中心都无法找到 Chrome 浏览器。所以下面记录下我是如何安装 Chrome dev 的。
+
 * TOC
 {:toc}
-
-ubuntu 公司估计和 Google 公司有些许不同意见，直接使用 apt-get ，还是图形软件中心都无法找到 Chrome 浏览器。所以下面记录下我是如何安装 Chrome dev 的。
 
 由于本身没有将下载源加入到系统的源列表。那么我们手动加上。
 

@@ -16,10 +16,10 @@ author: Aidan
 date: 2017-02-06
 ---
 
+以往写脚本语言最火的是python和shell，随着nodejs逐渐强大起来，前端工程师也能写一些有用的工具帮助提升开发效率，当然，喜欢写工具的都是懒人，我也不除外。
+
 * TOC
 {:toc}
-
-以往写脚本语言最火的是python和shell，随着nodejs逐渐强大起来，前端工程师也能写一些有用的工具帮助提升开发效率，当然，喜欢写工具的都是懒人，我也不除外。
 
 有很多强大的命令行框架，比如[shelljs](https://github.com/shelljs/shelljs), [commander.js](https://github.com/tj/commander.js), [node-optimist](https://github.com/substack/node-optimist)。这两个框架都很出名，也是平常用的最多的两个框架，但今天我想给大家介绍另一个比较普通的框架yargs。
 

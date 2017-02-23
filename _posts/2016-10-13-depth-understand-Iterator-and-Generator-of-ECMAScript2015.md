@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: "./asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 深入理解 ECAMScript2016 中的 Iterator 和 Generator
 type: 【整理】
@@ -16,6 +16,9 @@ date: 2016-10-13
 ---
 
 ECMAScript2016 中引入了 Iterator 和 Generator，网上有很多介绍怎么使用的文章，但是往往不够深入，为了彻底弄明白它哥俩，自己花了一天时间总结如下。
+
+* TOC
+{:toc}
 
 # 1 曾经我们写过的代码
 

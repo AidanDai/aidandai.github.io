@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: ".../asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 安装 ubuntu 16.04
 type: 【整理】
@@ -16,10 +16,10 @@ author: Aidan
 date: 2016-12-21
 ---
 
+上一篇文章简单介绍了下 ubuntu 的文件结构系统，这边文章将记录我安装的过程，由于安装过程中没有截图，所以本文的图片都来源网络。
+
 * TOC
 {:toc}
-
-上一篇文章简单介绍了下 ubuntu 的文件结构系统，这边文章将记录我安装的过程，由于安装过程中没有截图，所以本文的图片都来源网络。
 
 # 1 制作 Ubuntu 16.04 LTS U 盘启动盘
 

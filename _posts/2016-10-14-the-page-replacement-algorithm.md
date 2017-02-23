@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: "./asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 操作系统页面置换算法简介
 type: 【整理】
@@ -16,6 +16,9 @@ date: 2016-09-14
 ---
 
 本文介绍操作系统几种常用的页面置换算法。
+
+* TOC
+{:toc}
 
 页面置换算法的功能：当出现缺页异常，需调入新页面而内存已满时，置换算法选择被置换的物理页面。
 

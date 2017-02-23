@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: "./asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 浅析 ThinkJS 中 RESTful API 的设计
 type: 【原创】
@@ -16,6 +16,9 @@ date: 2016-10-09
 ---
 
 本文简单分析一下 Think.js 中 RESTful API 的设计。
+
+* TOC
+{:toc}
 
 # 1 ThinkJS 中的 RESTful API
 
@@ -79,7 +82,7 @@ export default class extends think.controller.rest {
 >response_end 请求响应结束
 >
 >每个 hook 里调用多个 middleware 来完成处理，具体包含的 middleware 如下：
-<<<<<<< HEAD
+
 >
 >```javascript
 >export default {
@@ -102,27 +105,3 @@ export default class extends think.controller.rest {
 >```
 
 ThinkJS 中的 hook 列表，看到这里我真是一脸懵逼。框架中默认 hook 列表 的执行顺序（PS：貌似无法直接调整hook 列表的执行顺序，只能编辑和选择性执行 hook）让人无法理解。如果要设计 RESTful API，`hook 中为什么会把 route_parse 放在后面，而把 payload_parse、payload_validate 和 resource 放在前面；这样如何进行权限管理，怎么实现对资源的浏览、创建、更新、删除呢？`，这样的处理流程怎么设计 RESTful API 呢？
-=======
-
-```javascript
-export default {
-  request_begin: [],
-  payload_parse: ["parse_form_payload", "parse_single_file_payload", "parse_json_payload", "parse_querystring_payload"],
-  payload_validate: ["validate_payload"],
-  resource: ["check_resource", "output_resource"],
-  route_parse: ["rewrite_pathname", "parse_route"],
-  logic_before: [],
-  logic_after: [],
-  controller_before: [],
-  controller_after: [],
-  view_before: [],
-  view_template: ["locate_template"],
-  view_parse: ["parse_template"],
-  view_filter: [],
-  view_after: [],
-  response_end: []
-};
-```
-
-ThinkJS 中的 hook 列表，看到这里我真是一脸懵逼。框架中默认 hook 列表 的执行顺序（PS：貌似无法直接调整hook 列表的执行顺序，只能编辑和选择性执行 hook）让人无法理解。如果要设计 RESTful API，**hook 中为什么会把 route_parse 放在后面，而把 payload_parse、payload_validate 和 resource 放在前面；这样如何进行权限管理，怎么实现对资源的浏览、创建、更新、删除呢？**，这样的处理流程怎么设计 RESTful API 呢？
->>>>>>> refs/remotes/origin/master
