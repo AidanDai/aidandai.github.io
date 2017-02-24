@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: ".../asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: yargs 学习笔记
 type: 【整理】

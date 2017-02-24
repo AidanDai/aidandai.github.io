@@ -2,7 +2,7 @@
 layout: post
 h1: "share & note"
 description: "The worst pen is better than the best memory!"
-header-img: ".../asset/image/blog/blog-bg-001.jpg"
+header-img: "../asset/image/blog/blog-bg-001.jpg"
 
 title: 数据库连接池原理浅析
 type: 【整理】
