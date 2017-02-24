@@ -78,8 +78,10 @@ date: 2016-09-14
 
 ![图解页面置换算法 - 时钟置换算法](../asset/image/blog/2016-10-14-the-page-replacement-algorithm/004.png)
 
+>
 >参考资料：
 >
 >[红黑联盟：操作系统——页面置换算法详解](http://www.2cto.com/os/201508/431266.html)
 >
 >[C 语言中文网：页面置换算法](http://c.biancheng.net/cpp/html/2614.html)
+>

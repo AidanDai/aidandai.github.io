@@ -408,3 +408,4 @@ Token Auth 应用示意图：
 >[红心李：基于 Token 的 WEB 后台认证机制](http://www.cnblogs.com/xiekeli/p/5607107.html)
 >
 >[Yushneng：JWT 在前后端分离中的应用与实践](http://blog.rainy.im/2015/06/10/react-jwt-pretty-good-practice/)
+>
