@@ -303,6 +303,36 @@ footer .simply-links a:hover {
 .share {
   margin: 20px 0 40px;
 }
+.top-bottom {
+  position: fixed;
+  right: 30px;
+  bottom: 140px;
+  height: 74px;
+  width: 32px;
+  z-index: 1000;
+  background-color: #fff;
+}
+.top-bottom span {
+  margin: 0 0 10px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: #ececec;
+  cursor: pointer;
+}
+.top-bottom span i {
+  display: block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.top-bottom span:hover {
+  background-color: #999;
+}
+.top-bottom span.go-bottom {
+  margin: 0;
+}
 .blog-main {
   box-sizing: border-box;
   width: 100%;
@@ -542,6 +572,33 @@ code {
 .ballot_box:before {
   content: "\2610\ ";
 }
+/*滚动条宽度*/
+.post-toc ::-webkit-scrollbar,
+.highlighter-rouge ::-webkit-scrollbar {
+  width: 8px;
+}
+/* 轨道样式 */
+/* Handle样式 */
+.post-toc ::-webkit-scrollbar-thumb,
+.highlighter-rouge ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+/*当前窗口未激活的情况下*/
+.post-toc ::-webkit-scrollbar-thumb:window-inactive,
+.highlighter-rouge ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.1);
+}
+/*hover到滚动条上*/
+.post-toc ::-webkit-scrollbar-thumb:vertical:hover,
+.highlighter-rouge ::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/*滚动条按下*/
+.post-toc ::-webkit-scrollbar-thumb:vertical:active,
+.highlighter-rouge ::-webkit-scrollbar-thumb:vertical:active {
+  background-color: rgba(0, 0, 0, 0.7);
+}
 .post-header {
   margin: 20px 0 40px;
 }
@@ -564,15 +621,6 @@ table td,
 table th {
   border: 1px solid #CCC;
   padding: 4px;
-}
-#markdown-toc {
-  width: 200px;
-  margin: 0;
-  padding: 1rem;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: #fff;
 }
 /* Monokai Theme from https://github.com/richleland/pygments-css/blob/master/monokai.css */
 .highlight {
@@ -848,6 +896,27 @@ table th {
 }
 @media screen and (min-width: 1024px) {
   .code-main {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
+.about-main {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 300px;
+  max-width: 1024px;
+  margin: 0;
+  padding: 1.2rem 1rem;
+  background-color: #fff;
+}
+.about-main .highlight {
+  overflow-x: auto;
+}
+.about-main .highlight code {
+  overflow-x: scroll;
+}
+@media screen and (min-width: 1024px) {
+  .about-main {
     width: 1024px;
     margin: 0 auto;
   }

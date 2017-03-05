@@ -8,7 +8,7 @@ let gulp = require('gulp'),
   browserSync = require('browser-sync').create();
 
 gulp.task('less', function () {
-  return gulp.src('./asset/style/dev-less/index.less')
+  gulp.src('./asset/style/dev-less/index.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))

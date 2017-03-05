@@ -41,7 +41,7 @@ Redis 中的主键失效是如何实现的，即失效的主键是如何删除�
 
 【代码段一】
 
-```C
+```c
 typedef struct redisDb {
     dict *dict;
     dict *expires;
@@ -58,7 +58,7 @@ typedef struct redisDb {
 
 【代码段二】
 
-```C 
+```c 
 int expireIfNeeded(redisDb *db, robj *key) {
     //获取主键的失效时间
     long long when = getExpire(db,key);
@@ -85,7 +85,7 @@ int expireIfNeeded(redisDb *db, robj *key) {
 
 【代码段三】
 
-```C 
+```c 
 void propagateExpire(redisDb *db, robj *key) {
     robj *argv[2];
     //shared.del是在Redis服务器启动之初就已经初始化好的一个常用Redis对象，即DEL命令
@@ -112,7 +112,7 @@ void propagateExpire(redisDb *db, robj *key) {
 
 【代码段四】
 
-```C 
+```c 
 if(aeCreateTimeEvent(server.el, 1, serverCron, NULL, NULL) == AE_ERR) {
         redisPanic("create time event failed");
         exit(1);
@@ -121,7 +121,7 @@ if(aeCreateTimeEvent(server.el, 1, serverCron, NULL, NULL) == AE_ERR) {
 
 【代码段五】给出了函数 activeExpireCycle 的实现及其详细描述，其主要实现原理就是遍历处理 Redis 服务器中每个数据库的 expires 字典表中，从中尝试着随机抽样 REDIS_EXPIRELOOKUPS_PER_CRON（默认值为10）个设置了失效时间的主键，检查它们是否已经失效并删除掉失效的主键，如果失效的主键个数占本次抽样个数的比例超过25%，Redis 会认为当前数据库中的失效主键依然很多，所以它会继续进行下一轮的随机抽样和删除，直到刚才的比例低于25%才停止对当前数据库的处理，转向下一个数据库。这里我们需要注意的是，activeExpireCycle 函数不会试图一次性处理Redis中的所有数据库，而是最多只处理 REDIS_DBCRON_DBS_PER_CALL（默认值为16），此外 activeExpireCycle 函数还有处理时间上的限制，不是想执行多久就执行多久，凡此种种都只有一个目的，那就是避免失效主键删除占用过多的CPU资源。【代码段五】有对 activeExpireCycle 所有代码的详细描述，从中可以了解该函数的具体实现方法。
 
-```C 
+```c 
 void activeExpireCycle(void) {
     //因为每次调用activeExpireCycle函数不会一次性检查所有Redis数据库，所以需要记录下
     //每次函数调用处理的最后一个Redis数据库的编号，这样下次调用activeExpireCycle函数

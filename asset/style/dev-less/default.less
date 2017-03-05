@@ -12,3 +12,35 @@
 .share {
 	margin: 20px 0 40px;
 }
+
+.top-bottom {
+	position: fixed;
+	right: 30px;
+	bottom: 140px;
+	height: 74px;
+	width: 32px;
+	z-index: 1000;
+	background-color: #fff;
+
+	span {
+		margin: 0 0 10px;
+		display: block;
+		width: 32px;
+		height: 32px;
+		background-color: #ececec;
+		cursor: pointer;
+		i {
+			display: block;
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+		}
+	}
+	span:hover {
+		background-color: #999;
+	}
+	span.go-bottom {
+		margin: 0;
+	}
+}

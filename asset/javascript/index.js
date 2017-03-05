@@ -1,16 +1,21 @@
-// <i class="show fa fa-rocket" aria-hidden="true"></i>
-// <i class="show fa fa-th-list" aria-hidden="true"></i>
+// var code = $('#code-main')
+// $(window).resize(function(){
+// 	code.outerHeight();
+// 	code.attr('style', 'overflow: auto;')
+// });
+$('document').ready(function(){
+	var doc = $('#markdown-toc')
+	var gt = $('.go-top')
+	var gb = $('.go-bottom')
+	var body = $('body')
 
-// function top(){
-
-// }
-
-// function toc(){
-
-// }
-
-var code = $("#code-main");
-
-$(window).resize(function(){
-	code.outerHeight();
-});
+	$(doc).find('a').each(function(index, a){
+		$(a).attr('target', '_self')
+	})
+	$(gt).on('click', function(){
+		$(body).scrollTop(0)
+	})
+	$(gb).on('click', function(){
+		$(body).scrollTop($(document).height())
+	})
+})
