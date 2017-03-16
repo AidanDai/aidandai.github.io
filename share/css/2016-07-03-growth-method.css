@@ -1,0 +1,89 @@
+hr{
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+#growth span {
+	display: inline-block;
+	height: 25px;
+	text-align: center;
+}
+.outer {
+	width: 500px;
+	height: 500px;
+
+	margin: 0 auto;
+	padding: 0;
+
+	border-radius: 50%;
+	background-color: #fff;
+	color: #000;
+}
+.mid {
+	position: relative;
+	top: -25px;
+
+	width: 350px;
+	height: 350px;
+
+	margin: 75px auto;
+
+	border-radius: 50%;
+	background-color: #999;
+	color: #eee;
+}
+.inner {
+	position: relative;
+	top: -25px;
+
+	width: 200px;
+	height: 200px;
+
+	margin: 75px auto;
+
+	border-radius: 50%;
+	background-color: #222;
+	color: #fff;
+}
+.react {
+	position: relative;
+	top: -25px;
+
+	width: 60px;
+	height: 60px;
+
+	margin: 70px auto;
+
+	border-radius: 50%;
+}
+#why{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+
+	margin: 0 auto;
+	padding: 0;
+
+	border-radius: 50%;
+	background-color: #fff;
+	color: #000;
+
+	text-align: center;
+	vertical-align: middle;
+	line-height: 200px;
+
+	position: absolute;
+	top: 36%;
+	left: 72%;
+}
+#last h1,
+#last h2{
+	color: #000;
+	text-shadow: none;
+}
+
+.outer, 
+.mid,
+.inner {
+	visibility: hidden;
+}

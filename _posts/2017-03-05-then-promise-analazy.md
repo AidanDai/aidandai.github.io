@@ -1,6 +1,6 @@
 ---
 layout: post
-h1: "share & note"
+h1: "Note"
 description: "The worst pen is better than the best memory!"
 header-img: "../asset/image/blog/blog-bg-001.jpg"
 

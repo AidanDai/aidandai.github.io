@@ -878,6 +878,77 @@ table th {
   background-color: #333;
   padding: 1rem;
 }
+.share-main {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 300px;
+  max-width: 1024px;
+  margin: 0;
+  padding: 1.2rem 1rem;
+  background-color: #fff;
+}
+.share-main a {
+  color: #4fc3f7;
+  text-decoration: none;
+}
+.share-main ol,
+.share-main li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.share-main ol {
+  -webkit-text-shadow: 1px 1px 1px rgba(201, 201, 201, 0.5);
+  -moz-text-shadow: 1px 1px 1px rgba(201, 201, 201, 0.5);
+  -ms-text-shadow: 1px 1px 1px rgba(201, 201, 201, 0.5);
+  -o-text-shadow: 1px 1px 1px rgba(201, 201, 201, 0.5);
+  text-shadow: 1px 1px 1px rgba(201, 201, 201, 0.5);
+}
+.share-main li {
+  font-size: 110%;
+  font-weight: bold;
+  padding: .75em 0 .75em 20px;
+  border-bottom: 1px dashed #ccc;
+}
+.share-main li:hover {
+  background-color: #eee;
+}
+.share-main .copyright {
+  font-weight: normal;
+  text-align: right;
+  padding: 0;
+  margin: 20px;
+  line-height: 32px;
+}
+.share-main .copyright a {
+  color: #259;
+}
+.share-main .copyright a:hover {
+  text-decoration: underline;
+}
+.share-main ol a.mult-link,
+.share-main ol a.socket-link {
+  margin: 0 15px;
+}
+.share-main ol a.mult-link:before,
+.share-main ol a.socket-link:before {
+  content: '[ ';
+  color: black;
+}
+.share-main ol a.mult-link:after,
+.share-main ol a.socket-link:after {
+  content: ' ]';
+  color: black;
+}
+.share-main ol a.socket-link {
+  margin: 0 ;
+}
+@media screen and (min-width: 1024px) {
+  .about-main {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
 #code-main {
   box-sizing: border-box;
   width: 100%;

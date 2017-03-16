@@ -2,7 +2,7 @@
 layout: about
 title: "About"
 h1: "About"
-description: "Introduce & Skill & Resume"
+description: "Stay hungry, stay foolish!"
 header-img: "./asset/image/about/about-bg-001.jpg"
 ---
 
@@ -13,6 +13,7 @@ header-img: "./asset/image/about/about-bg-001.jpg"
         "webAidan",
         "AidanDai"
     ],
+    "email": "aidandai@126.com",
     "introduce": "I like Linux for her simple、efficient, I also like the Internet for her freedom、sharing. Dream of becoming a qualified web developer！",
     "skill": [
         [

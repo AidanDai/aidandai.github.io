@@ -1,0 +1,490 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Promise 解密之 then/promise 源码分析 - By 文桥</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Promise解密之<a href="https://github.com/then/promise" target="_blank">then/promise</a>源码分析</h1>
+<h2><a href="https://github.com/then/promise" target="_blank">https://github.com/then/promise</a></h2>
+<p><span style="float: right;">文桥 2017/03/06</span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>1 Promise 示例 1</h2>
+<pre><code class="javascript">function sync(){
+  console.log('I am a sync method!')
+}
+sync()
+// 貌似阻塞了 3 秒，效果有点像 php 中的 sleep()
+// 但原理是完全不同的，下面我们一起来看看这到底是如何实现的
+var p = new Promise(function(onFulfilled, onRejected){
+  console.log(`${new Date()}: I am s sync method, too!`)
+  setTimeout(function(){
+    onFulfilled(`${new Date()}: I am a async method!(fulfilled)`)
+  }, 3000)
+})
+p.then(
+  (result) => {console.log(result)}, 
+  (error) => {console.log(error)}
+)
+
+// I am a sync method!
+// Mon Feb 27 2017 01:55:51 GMT+0800 (CST): I am s sync method, too!
+// Mon Feb 27 2017 01:55:54 GMT+0800 (CST): I am a async method!(fulfilled)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>2 Javascript 中的 Promise 模式</h1>
+
+</hgroup><article>
+
+<img src="./img/2017-02-26-promise-analyze/promise-pattern.png"/>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>3 <a href="http://malcolmyu.github.io/malnote/2015/06/12/Promises-A-Plus/" target="_blank">Promise/A+ 规范</a>简介</h2>
+
+</hgroup><article>
+
+<ul>
+<li>术语<ul>
+<li>Promise、thenable、value(终值)、reason(据因)、exception(异常)</li>
+</ul>
+</li>
+<li>状态<ul>
+<li>Pending(等待态)、Fulfilled(执行态)、Rejected(拒绝态)</li>
+</ul>
+</li>
+<li>Then 方法<ul>
+<li>参数可选、调用时机、调用要求、多次调用、返回</li>
+</ul>
+</li>
+<li>Promise 解决过程（稍后详细分析）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>4 then/promise 伪类图</h2>
+
+</hgroup><article>
+
+<img src="./img/2017-02-26-promise-analyze/promise.png"/>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>5 Promise 解决过程</h2>
+<pre><code class="javascript">var p = new Promise(function(onFulfilled, onRejected){
+  console.log('I am s sync method, too!')
+  setTimeout(function(){
+    onFulfilled('I am a async method!(fulfilled)')
+  }, 3000)
+})
+
+function Promise(fn) {
+  // ...
+  this._deferredState = 0;
+  this._state = 0;
+  this._value = null;
+  this._deferreds = null;
+  if (fn === noop) return;
+  doResolve(fn, this);
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">function doResolve(fn, promise) {
+  var done = false; // 确保只执行 resolve 或 reject 
+  var res = tryCallTwo(fn, function (value) {// onFulfilled
+    if (done) return;
+    done = true;
+    resolve(promise, value);
+  }, function (reason) {// onRejected
+    if (done) return;
+    done = true;
+    reject(promise, reason);
+  });
+  // ...
+}
+
+// fn 为 Promise 传入的匿名函数; 在 fn 中 return 任何值都不会影响 then
+function tryCallTwo(fn, a, b) {
+  try {// 执行用户业务逻辑代码，若发生意外错误，直接退出
+    fn(a, b);
+  } catch (ex) {
+    LAST_ERROR = ex;
+    return IS_ERROR;
+  }
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">// newValue 为 resolve 的参数
+function resolve(self, newValue) {
+  // ...
+  // 各种参数的校验
+  self._state = 1;
+  self._value = newValue;
+  finale(self);
+}
+
+// 由于此时 _deferredState = 0 所以直接跳过 finale
+// 但是我们在后面会看到 finale 的强大作用
+function finale(self) {
+  if (self._deferredState === 1) {
+    handle(self, self._deferreds);
+    self._deferreds = null;
+  }
+  if (self._deferredState === 2) {
+    for (var i = 0; i < self._deferreds.length; i++) {
+      handle(self, self._deferreds[i]);
+    }
+    self._deferreds = null;
+  }
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">// Promise 解决过程结束
+// 实例化的过程不算复杂，最终会返回给我们一个 Promise 对象
+{
+  _deferredState: 0,
+  _state: 1 | 2 | 3,
+  _value: Promise | thenable | others,
+  _deferreds: null
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>7 then/promise 是如何使异步任务顺序化的？</h2>
+<pre><code class="javascript">// 通过对 Promise 构造过程的分析
+// 我们知道在构造函数中的异步任务还是被添加到了事件循环的任务队列中
+
+setTimeout(function(){// async1
+  onFulfilled('I am a async method!')
+}, 3000)
+</code></pre>
+
+<img src="./img/2017-02-26-promise-analyze/task1.png"/>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>7.1 promise 示例 2</h3>
+<pre><code class="javascript">
+var p1 = new Promise(function(onFulfilled, onRejected){
+  console.log('I am s sync method, too!')
+  setTimeout(function(){
+    onFulfilled('I am a async method!')
+  }, 3000)
+})
+var p2 = p1.then(
+    (result) => {console.log(result)}, 
+    (error) => {console.log(error)}
+  )
+var p3 = p2.then(
+    () => {console.log('then-2-onFulfilled')}, 
+    () => {console.log('then-2-onRejected')}
+  )
+var p4 = p3.then(
+    () => {
+      console.log('then-3-onFulfilled')
+    }, 
+    () => {console.log('then-3-onRejected')}
+  )
+console.log(JSON.stringify(p0))  
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">// I am a sync method!
+// Mon Feb 27 2017 02:55:22 GMT+0800 (CST): I am s sync method, too!
+// {"_deferredState":1,"_state":0,"_value":null,"_deferreds":{"promise":{"_deferredState":1,"_state":0,"_value":null,"_deferreds":{"promise":{"_deferredState":1,"_state":0,"_value":null,"_deferreds":{"promise":{"_deferredState":0,"_state":0,"_value":null,"_deferreds":null}}}}}}}
+// Mon Feb 27 2017 02:55:25 GMT+0800 (CST): I am a async method!
+// then-2-onFulfilled
+// then-3-onFulfilled
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="json">{
+    "_deferredState": 1, 
+    "_state": 0, 
+    "_value": null, 
+    "_deferreds": {
+        "promise": {
+            "_deferredState": 1, 
+            "_state": 0, 
+            "_value": null, 
+            "_deferreds": {
+                "promise": {
+                    "_deferredState": 1, 
+                    "_state": 0, 
+                    "_value": null, 
+                    "_deferreds": {
+                        "promise": {
+                            "_deferredState": 0, 
+                            "_state": 0, 
+                            "_value": null, 
+                            "_deferreds": null
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>7.2 再探任务队列</h3>
+<pre><code class="javascript">Promise.prototype.then = function(onFulfilled, onRejected) {
+  // 是 thenable 但不是原生的 Promise 实例时执行(非法的 then 时执行)
+  if (this.constructor !== Promise) {
+    return safeThen(this, onFulfilled, onRejected);
+  }
+  // 这里处理的十分巧妙（链表就是在这里形成的）
+  var res = new Promise(noop); // 实例化一个新的 Promise
+  handle(this, new Handler(onFulfilled, onRejected, res));
+  return res;
+};
+
+// new Handler():deferred(数据结构)
+// {
+//   onFulfilled: function | null,
+//   onRejected: function | null,
+//   promise: Promise // then 产生的新 Promise
+// }
+function Handler(onFulfilled, onRejected, promise){
+  // 后面会提到 Promise 击穿问题；这里就是产生击穿的原因
+  this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
+  this.onRejected = typeof onRejected === 'function' ? onRejected : null;
+  this.promise = promise;
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">function handle(self, deferred) {
+  // ...
+  if (self._state === 0) {
+    if (self._deferredState === 0) {
+      self._deferredState = 1;
+      self._deferreds = deferred; // 链式处理
+      return;
+    }
+    if (self._deferredState === 1) {// 什么时候为 1 呢？
+      self._deferredState = 2;
+      self._deferreds = [self._deferreds, deferred];
+      return;
+    }
+    self._deferreds.push(deferred);
+    return;
+  }
+  handleResolved(self, deferred);
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">function handleResolved(self, deferred) {
+  // 每个 then() 最终都会向 任务队列里添加一个匿名函数
+  // 这里我们依次叫 async2、async3、saync4
+  setImmediate(function() {// async2
+    // ...
+  });
+}
+</code></pre>
+
+<img src="./img/2017-02-26-promise-analyze/task2.png"/>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>8 基于 Event Loop 的发布订阅</h2>
+
+</hgroup><article>
+
+<img src="./img/2017-02-26-promise-analyze/flow.png"/>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code>function() {// async2
+    var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+    if (cb === null) {
+      if (self._state === 1) {
+        resolve(deferred.promise, self._value);
+      } else {
+        reject(deferred.promise, self._value);
+      }
+      return;
+    }
+    // ret 为 IS_ERROR 或者 onFulfilled/onRejected 的返回值
+    var ret = tryCallOne(cb, self._value);
+    if (ret === IS_ERROR) {
+      reject(deferred.promise, LAST_ERROR);
+    } else {
+      // 当你在 then 中 return 了一个新的 promise
+      // 便会 resolve(deferred.promise, promise)
+      // resolve 中会修改 _state = 3
+      // handle 时便会走 while 用新的 promise 替换旧的（跳过 deferred.promise）
+      // 于是执行的任务又基于一个新的 Promise 按我们预想的流程继续进行
+      resolve(deferred.promise, ret);
+    }
+  }
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">function tryCallOne(fn, a) {
+  try {
+    // return 很重要，意味着你可以在 
+    // onFulfilled/onRejected 中 return 任何值，当然包括 Promise
+    return fn(a); 
+  } catch (ex) {
+    LAST_ERROR = ex;
+    return IS_ERROR;
+  }
+}</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>9 几个有趣的问题</h2>
+
+</hgroup><article>
+
+<pre><code class="javascript">doSomething()
+  .then(function () {
+    return doSomethingElse()
+  })
+  .then(finalHandler)
+
+doSomething()
+  .then(function () {
+    doSomethingElse()
+  })
+  .then(finalHandler)
+
+doSomething()
+  .then(doSomethingElse())
+  .then(finalHandler)
+
+doSomething()
+  .then(doSomethingElse)
+  .then(finalHandler)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="javascript">doSomething
+|-----------------|
+                  doSomethingElse
+                  |------------------|
+                                     finalHandler
+                                     |------------------|
+
+doSomething
+|-----------------|
+                  doSomethingElse
+                  |------------------|
+                  finalHandler
+                  |------------------|
+
+doSomething
+|-----------------|
+doSomethingElse
+|---------------------------------|
+                  finalHandler
+                  |------------------|
+doSomething
+
+|-----------------|
+                  doSomethingElse
+                  |------------------|
+                                     finalHandler
+                                     |------------------|</code></pre>
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/zoom.js"></script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
