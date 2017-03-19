@@ -1,0 +1,207 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>前端工程化简介 - By 文桥</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>1 什么是前端工程</h1>
+<ul>
+<li><h2>1.1 广义的前端工程</h2>
+<blockquote>
+<p>前端工程是软件工程的一个子类，指的是将软件工程的方法和原理运用在前端开发中, 目的是实现 <code>高效开发</code>，<code>有效协同</code>，<code>质量可控</code>。</p>
+</blockquote>
+</li>
+<li><h2>1.2 狭义的前端工程</h2>
+<blockquote>
+<p>前端工程是指将 <code>开发阶段</code> 的代码转变成 <code>生产环境</code> 的代码的一系列步骤。主要包括 <code>开发</code>, <code>构建</code> , <code>管理</code> , <code>测试</code>, <code>部署</code>, <code>运维</code> 等。</p>
+</blockquote>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>2 为什么要提前端工程</h1>
+<ul>
+<li><h2>2.1 传统开发</h2>
+<ul>
+<li>切图 -&gt; 套页面 -&gt; 后端模板引擎(前后端耦合、难维护等等)</li>
+</ul>
+</li>
+<li><h2>2.2 现在的前端</h2>
+<ul>
+<li>前端范畴不断扩大（多端）</li>
+<li>前后端分离(前端模板引擎)</li>
+<li>模块化开发(面向业务)</li>
+<li>组件化开发(脱离业务、细粒度、可复用)</li>
+<li>编译原理在前端大放异彩</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>3 前端工程化体系</h1>
+<img src="./img/2017-03-19-front-end-engineering/FEE.png" alt="前端工程化体系示例">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>4 前端工程化体系（大前端）</h1>
+<ul>
+<li>web 应用开发层<ul>
+<li>分治（模块化、组件化）</li>
+<li>前后端彻底分离（Mock Server、JSON Server）</li>
+</ul>
+</li>
+<li>Node 服务层<ul>
+<li>Model、Router、View</li>
+</ul>
+</li>
+<li>前端运维层<ul>
+<li>Lint(StyleLint、ESLint)</li>
+<li>Unit Test(Mocha)</li>
+<li>CD</li>
+<li>CI(Gitlab-CI、Docker)</li>
+<li>Bootstrap(Forever、PM2)</li>
+<li>Monitoring(Keymetrics.io、Sentry.io)</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>5 利用好 asset.json</h1>
+<ul>
+<li>目前服务端渲染机制还为动手实践过，所以这里只是一个思路</li>
+</ul>
+<pre><code class="json">{
+  "index": {
+    "client-render": {
+      "main.css": "static/css/main.ad87bbd6.css",
+      "main.js": "static/js/main.a3907cec.js",
+    },
+    "server-render": {
+      "main.css": "static/css/main.ad87bbd6.css",
+      "main.js": "static/js/main.a3907cec.js",
+    }
+  },
+  "club": {
+    // ....
+  }
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>5 非覆盖式发布</h1>
+<img src="./img/2017-03-19-front-end-engineering/non-overlay-publishing.jpg" alt="非覆盖式发布">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>6 web 应用上线、更新的部署</h1>
+<img src="./img/2017-03-19-front-end-engineering/fe-project-deloy.png" alt="工程化的 web 应用上线、更新的部署">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>7 参考资料</h1>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000008358748" target="_blank">浅说前端工程化</a></li>
+<li><a href="https://github.com/fouber/blog" target="_blank">张云龙：前端工程</a></li>
+<li><a href="http://www.cnblogs.com/ihardcoder/p/5378290.html" target="_blank">浅析前端工程化</a></li>
+<li><a href="http://roshanca.com/2017/front-end-engineering-system" target="_blank">肉山·察：前端工程化体系</a></li>
+</ul>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/zoom.js"></script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
