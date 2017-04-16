@@ -15,7 +15,7 @@ author: Aidan
 date: 2016-10-13
 ---
 
-ECMAScript2016 中引入了 Iterator 和 Generator，网上有很多介绍怎么使用的文章，但是往往不够深入，为了彻底弄明白它哥俩，自己花了一天时间总结如下。
+ECMAScript2016 中引入了 `Iterator` 和 `Generator` ，网上有很多介绍怎么使用的文章，但是往往不够深入，为了彻底弄明白它哥俩，自己花了一天时间总结如下。
 
 * TOC
 {:toc}
@@ -24,7 +24,7 @@ ECMAScript2016 中引入了 Iterator 和 Generator，网上有很多介绍怎么
 
 ## 1.1 for
 
-我们如何遍历数组中的元素？20年前JavaScript刚萌生时，我们是这样实现数组遍历：
+我们如何遍历数组中的元素？20 年前 JavaScript 刚萌生时，我们是这样实现数组遍历：
 
 ```javascript
 for (var index = 0, len = myArray.length; index < len; index += 1) {
@@ -34,7 +34,7 @@ for (var index = 0, len = myArray.length; index < len; index += 1) {
 
 ## 1.2 forEach()
 
-自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：
+自ES5正式发布后，你可以使用内建的 `forEach` 方法来遍历数组：
 
 ```javascript
 myArray.forEach(function (value) {
@@ -76,7 +76,7 @@ for (let value of myArray) {
 }
 ```
 
-是的，与之前的内建方法相比，这种循环方式看起来是否有些眼熟？那好，我们将要探究一下for-of循环的外表下隐藏着哪些强大的功能。现在，只需记住：
+是的，与之前的内建方法相比，这种循环方式看起来是否有些眼熟？那好，我们将要探究一下 `for-of` 循环的外表下隐藏着哪些强大的功能。现在，只需记住：
 
 - 这是最简洁、最直接的遍历数组元素的语法
 - 这个方法避开了 `for-in` 循环的所有缺陷
@@ -90,7 +90,7 @@ for (let value of myArray) {
 
 `for-of` 循环不仅支持数组，还支持大多数类数组对象，例如 `DOM NodeList` 对象。
 
-`for-of` 循环也支持字符串遍历，它将字符串视为一系列的 Unicode 字符来进行遍历：
+`for-of` 循环也支持字符串遍历，它将字符串视为一系列的 `Unicode` 字符来进行遍历：
 
 ```javascript
 for (let char of "Aidan") {
@@ -100,7 +100,7 @@ for (let char of "Aidan") {
 
 它同样支持 `Map` 和 `Set` 对象遍历。
 
-为什么 `for-of` 如此的强大呢？现在我来告诉你，因为 Iterator （迭代器）；遍历器（Iterator）是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 Iterator 接口，就可以完成 `for-of` 遍历操作（即依次处理该数据结构的所有成员）。
+为什么 `for-of` 如此的强大呢？现在我来告诉你，因为 `Iterator` （迭代器）；迭代器（`Iterator`）是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 `Iterator` 接口，就可以完成 `for-of` 遍历操作（即依次处理该数据结构的所有成员）。
 
 # 2 初识 Iterator （迭代器）和 Generator （生成器）
 
