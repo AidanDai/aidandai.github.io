@@ -1,0 +1,546 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JWT 实现原理 - By 文桥</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>1 What is JWT ?</h1>
+<p>JWT(JSON Web Token)　是一种用于双方之间传递安全信息的简洁的、URL　安全的表述性声明规范。JWT　作为一个开放的标准（<a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a>），定义了一种简洁的，自包含的方法用于通信双方之间以　JSON　对象的形式安全的传递信息。因为数字签名的存在，这些信息是可信的，JWT 可以使用 HMAC 算法或者是 RSA 的公私秘钥对进行签名。</p>
+<ul>
+<li>简洁(Compact): 可以通过 URL，POST 参数或者在 HTTP header 发送，因为数据量小，传输速度也很快</li>
+<li>自包含(Self-contained)：负载中包含了所需要的用户的所有信息，避免了多次查询数据库</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>2 JWT 通信过程</h1>
+<img src="./img/2017-04-17-JWT/010.png" alt="JWT 信息传递过程">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>3 JWT 的组成</h1>
+<ul>
+<li><h2>3.1 encode</h2>
+</li>
+</ul>
+<img src="./img/2017-04-17-JWT/001.png" alt="jwt">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>3 JWT 的组成</h1>
+<ul>
+<li><h2>3.2 decode</h2>
+</li>
+</ul>
+<pre><code class="JSON">{
+  &quot;alg&quot;: &quot;HS256&quot;,
+  &quot;typ&quot;: &quot;JWT&quot;
+}
+</code></pre>
+<pre><code class="json">{
+  &quot;sub&quot;: &quot;1234567890&quot;,
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;admin&quot;: true
+}
+</code></pre>
+<pre><code class="javascript">HMACSHA256(
+  base64UrlEncode(header) + &quot;.&quot; + base64UrlEncode(payload),
+    secret
+)
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>4 JWT　的主要应用场景</h1>
+<ul>
+<li><h2>4.1 身份认证</h2>
+</li>
+</ul>
+<p>这种场景下，一旦用户完成了登陆，在接下来的每个请求中都包含一个包含 JWT 的 Token，可以用来验证<code>用户身份</code>以及对<code>路由</code>，<code>服务</code>和<code>资源</code>的访问进行<code>权限验证</code>。由于它的开销非常小，可以轻松的在不同的系统中传递，所有目前在单点登录（SSO）中比较广泛的使用了该技术。</p>
+<pre><code>跨域还是同域传递完全取决于你传递的方式：
+
+http header
+Authorization: Bearer &lt;token&gt;
+Cookie: token=Bearer &lt;token&gt;
+
+URL query
+https://www.aidandai.com?authorization=Bearer &lt;token&gt;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>4 JWT　的主要应用场景</h1>
+<ul>
+<li><h2>4.2 信息交换</h2>
+</li>
+</ul>
+<p>JWT 是一个在双方间安全传递信息的好方法，因为它们能被签名。例如：我们可以使用公私秘钥对签名，这样就可以确保发送者以及他们发送的信息的真实性。此外，当签名使用头部和有效载荷计算时，还可以验证内容未被篡改。（这里不太了解，欢迎交流～）</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>5　常见用户认证机制</h1>
+<img src="./img/2017-04-17-JWT/002.png" alt="Cookie Auth　and Token Auth">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>6 Cookie Auth 面临的问题</h1>
+<img src="./img/2017-04-17-JWT/006.png" alt="单机部署的　Cookie Auth">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>　6 Cookie Auth 面临的问题</h1>
+<ul>
+<li>服务器端　Session 的存储方式<ul>
+<li>内存、文件、数据库</li>
+</ul>
+</li>
+<li>单机部署　Session 造成的问题<ul>
+<li>安全问题、高并发下的性能问题</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>6 Cookie Auth 面临的问题</h1>
+<img src="./img/2017-04-17-JWT/007.png" alt="多机部署的　Cookie Auth">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>6 Cookie Auth 面临的问题</h1>
+<ul>
+<li>服务器端　Session 的存储方式<ul>
+<li>文件（NFS）、数据库</li>
+</ul>
+</li>
+<li>多机部署(负载均衡)　Session 造成的问题<ul>
+<li>Session 共享、安全问题、高并发下的性能问题</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>7 Cookie Auth 优化方案</h1>
+<img src="./img/2017-04-17-JWT/008.png" alt="多机部署的　Cookie Auth">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>8 Token Auth 的优势</h1>
+<img src="./img/2017-04-17-JWT/009.png" alt="Token Auth 的优势">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>9 Token Auth with JWT 的登录认证</h1>
+<img src="./img/2017-04-17-JWT/004.jpg" alt="登录认证">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>10 Token Auth with JWT 的请求认证</h1>
+<img src="./img/2017-04-17-JWT/005.jpg" alt="请求认证">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>11 Node.js 中　JWT 的实现</h1>
+<ul>
+<li><h2>11.1 encode</h2>
+</li>
+</ul>
+<pre><code class="javascript">const base64Header = base64URLEncode(header)
+const base64Payload = base64URLEncode(payload)
+
+// 可以使用多种加密算法
+const signature = HMACSHA256(
+  `${base64Header}.${base64Payload}`,
+    secret
+)
+
+const jwt = `${base64Header}.${base64Payload}.${signature}`
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>11 Node.js 中　JWT 的实现</h1>
+<ul>
+<li><h2>11.2 decode</h2>
+</li>
+</ul>
+<pre><code class="javascript">const result = jwt.decode(jwt, secret)
+
+// verify
+
+// decode
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>12 base64 加密原理</h1>
+<ul>
+<li><h2>12.1 Base64 Encoding/Decoding Table</h2>
+</li>
+</ul>
+<img src="./img/2017-04-17-JWT/013.png" alt="Base64 Encoding/Decoding Table">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>12 base64 加密原理</h1>
+<ul>
+<li><h2>12.2  base64 加密例一</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字母:</th>
+<th style="text-align:left">T</th>
+<th style="text-align:left">o</th>
+<th style="text-align:left">m</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ASCII:</td>
+<td style="text-align:left">84</td>
+<td style="text-align:left">111</td>
+<td style="text-align:left">109</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">8bit字节:</td>
+<td style="text-align:left">01010100</td>
+<td style="text-align:left">01101111</td>
+<td style="text-align:left">01101101</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">6bit字节:</td>
+<td style="text-align:left">010101</td>
+<td style="text-align:left">000110</td>
+<td style="text-align:left">111101</td>
+<td style="text-align:left">101101</td>
+</tr>
+<tr>
+<td style="text-align:left">十进制:</td>
+<td style="text-align:left">21</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">61</td>
+<td style="text-align:left">45</td>
+</tr>
+<tr>
+<td style="text-align:left">对应编码:</td>
+<td style="text-align:left">V</td>
+<td style="text-align:left">G</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">t</td>
+</tr>
+</tbody>
+</table>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>12 base64 加密原理</h1>
+<ul>
+<li><h2>12.3  base64 加密例二</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字母:</th>
+<th style="text-align:left">L</th>
+<th style="text-align:left">u</th>
+<th style="text-align:left">c</th>
+<th style="text-align:left">y</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ASCII:</td>
+<td style="text-align:left">76</td>
+<td style="text-align:left">117</td>
+<td style="text-align:left">99</td>
+<td style="text-align:left">121</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">8bit字节:</td>
+<td style="text-align:left">01001100</td>
+<td style="text-align:left">01110101</td>
+<td style="text-align:left">01100011</td>
+<td style="text-align:left">01111001</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">6bit字节:</td>
+<td style="text-align:left">010011</td>
+<td style="text-align:left">000111</td>
+<td style="text-align:left">010101</td>
+<td style="text-align:left">100011</td>
+<td style="text-align:left">011110</td>
+<td style="text-align:left">010000</td>
+<td style="text-align:left">000000</td>
+<td style="text-align:left">000000</td>
+</tr>
+<tr>
+<td style="text-align:left">十进制:</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">21</td>
+<td style="text-align:left">35</td>
+<td style="text-align:left">30</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">(异常)</td>
+<td style="text-align:left">(异常)</td>
+</tr>
+<tr>
+<td style="text-align:left">对应编码:</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">H</td>
+<td style="text-align:left">V</td>
+<td style="text-align:left">j</td>
+<td style="text-align:left">e</td>
+<td style="text-align:left">Q</td>
+<td style="text-align:left">=</td>
+<td style="text-align:left">=</td>
+</tr>
+</tbody>
+</table>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>13 JWT 中常用的加密算法</h1>
+<ul>
+<li><h2>13.1 密码学中的一些概念</h2>
+</li>
+<li><p>对称加密</p>
+<ul>
+<li>秘钥</li>
+</ul>
+</li>
+<li><p>非对称加密</p>
+<ul>
+<li>秘钥对（公钥、私钥）</li>
+<li>公钥加密、私钥解密</li>
+<li>私钥生成数字签名、公钥验证数字签名（发送：多对一；客户端到服务器）</li>
+<li>私钥生成数字证书、公钥验证数字证书（广播：一对多；服务器到客户端）</li>
+</ul>
+</li>
+<li><p>数字签名、数字证书</p>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>13 JWT 中常用的加密算法</h1>
+<ul>
+<li><h2>13.2 数字签名、数字证书</h2>
+</li>
+</ul>
+<p>数字证书的作用是将<code>持有者的公钥</code>和<code>持有者的身份</code>绑定起来</p>
+<img src="./img/2017-04-17-JWT/012.png" alt="数字证书">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>13 JWT 中常用的加密算法</h1>
+<ul>
+<li><h2>13.3 Hmac 加密算法(带密钥的Hash函数)</h2>
+</li>
+</ul>
+<pre><code class="javascript">const crypto = require(&#39;crypto&#39;)
+const hash = crypto.createHmac(&#39;sha256&#39;, &#39;a secret&#39;)
+    .update(&#39;some data to hash&#39;)
+    .digest(&#39;hex&#39;)
+
+//   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>13 JWT 中常用的加密算法</h1>
+<ul>
+<li><h2>13.4 数字签名的制作和验证过程</h2>
+</li>
+</ul>
+<p>「网站公钥」要保证可信度，需要通过 CA(Certification Authority) 认证。
+通过将「网站公钥」用「CA 的私钥」签名生成「数字证书」，然后客户用「CA 的公钥」确认「数字证书」的完整性，里面会有　「网站公钥，该「网站公钥」就是可信的。然后客户在用「网站公钥」确认网站发送过来的信息的完整性。</p>
+<pre><code>Data + Signature + Digital Certificate
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>13 JWT 中常用的加密算法</h1>
+<ul>
+<li><h2>13.5  数字签名的制作和验证过程</h2>
+</li>
+</ul>
+<img src="./img/2017-04-17-JWT/011.png" alt="签名和验证算法">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>14 JWT 畅想 - 用户权限认证系统构想</h1>
+<p>需要在页面路由、API 接口或者资源服务器层验证用户权限。</p>
+<ul>
+<li>URL Request<ul>
+<li>Redirect</li>
+</ul>
+</li>
+<li>Common Resource Request<ul>
+<li>同域：同域下　cookie 存储　JWT 验证用户权限</li>
+<li>跨域：跨域时　query 带上 JWT 验证用户权限</li>
+</ul>
+</li>
+<li>API Resource Request<ul>
+<li>LocalStorage 存储　JWT 验证用户权限</li>
+</ul>
+</li>
+<li>Authentication<ul>
+<li>资源数据表实现</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>15 基于 JWT 的 Token 认证的安全问题</h1>
+<ul>
+<li>用户名/密码验证过程的安全性（HTTPS）</li>
+<li>Cookie 的安全问题（HTTP-Only）</li>
+<li>Replay Attacks（时间戳）</li>
+<li>MITM（Man-In-The-Middle）Attacks（HTTPS）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>16 参考资料</h1>
+<ul>
+<li><a href="https://jwt.io/introduction/" target="_blank">Introduction to JSON Web Tokens</a></li>
+<li><a href="https://segmentfault.com/a/1190000005047525" target="_blank">JWT 简介</a></li>
+<li><a href="http://blog.rainy.im/2015/06/10/react-jwt-pretty-good-practice/" target="_blank">JWT 在前后端分离中的应用与实践</a></li>
+<li><a href="https://segmentfault.com/a/1190000009030769" target="_blank">手动实现一个 json web token</a></li>
+<li><a href="http://www.cnblogs.com/xiekeli/p/5607107.html" target="_blank">基于 Token 的 WEB 后台认证机制</a></li>
+<li><a href="http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html" target="_blank">JSON Web Token (JWT)</a></li>
+<li><a href="http://stackoverflow.com/questions/30061307/jwt-how-to-handle-get-requests-when-user-opens-a-new-tab" target="_blank">JWT: how to handle GET requests when user opens a new tab?</a></li>
+<li><a href="http://bobao.360.cn/news/detail/1377.html" target="_blank">JSON 网络令牌库中出现严重漏洞</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" target="_blank">阮一峰：数字签名是什么？</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank">阮一峰：RSA算法原理（一）</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html" target="_blank">阮一峰：RSA算法原理（二）</a></li>
+<li><a href="https://www.zhihu.com/question/47232448" target="_blank">怎么保证「CA 的公钥」是真实的？</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Thank You</h1>
+<ul>
+<li><h2>自己造的轮子</h2>
+<ul>
+<li><a href="https://github.com/AidanDai/node.jwt" target="_blank">https://github.com/AidanDai/node.jwt</a></li>
+<li><a href="https://www.npmjs.com/package/node.jwt" target="_blank">https://www.npmjs.com/package/node.jwt</a></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/zoom.js"></script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

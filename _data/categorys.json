@@ -3,7 +3,7 @@
   {"name": "html", "public": false},
   {"name": "css", "public": false},
   {"name": "javascript", "public": true},
-  {"name": "node.js", "public": true},
+  {"name": "Node.js", "public": true},
   {"name": "数据库", "public": false},
   {"name": "java", "public": false},
   {"name": "c++", "public": false},
