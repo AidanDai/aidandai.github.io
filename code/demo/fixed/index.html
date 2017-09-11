@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ISO Fixed</title>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		header, footer, main {
+		    display: block;
+		}
+		header {
+		    position: fixed;
+		    height: 50px;
+		    left: 0;
+		    right: 0;
+		    top: 0;
+		}
+		footer {
+		    position: fixed;
+		    height: 34px;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		}
+		main {
+			margin: 0;
+		    /* main绝对定位，进行内部滚动 */
+		    position: absolute;
+		    top: 50px;
+		    bottom: 34px;
+		    /* 使之可以滚动 */
+		    overflow-y: scroll;
+		    width: 100vw;
+		}
+		main .content {
+		    height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<body class="layout-scroll-fixed">
+	    <!-- fixed定位的头部 -->
+	    <header>
+	        Header
+	    </header>
+	    
+	    <!-- 可以滚动的区域 -->
+	    <main>
+	        <div class="content">
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        	ios fixed<br/>
+	        </div>
+	    </main>
+	    
+	    <!-- fixed定位的底部 -->
+	    <footer>
+	        <input type="text" placeholder="Footer..."/>
+	        <button class="submit">提交</button>
+	    </footer>
+	</body>
+</body>
+</html>
