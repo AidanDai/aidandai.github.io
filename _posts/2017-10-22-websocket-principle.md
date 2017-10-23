@@ -26,6 +26,9 @@ date: 2017-10-22
 
 通过上面的介绍我们知道 WebSocket 是一种应用层协议，支持全双工通信。但它与 HTTP 有什么关系，以及是怎么实现全双工通信的呢？等等问题。接下来我们主要通过简单的介绍 WebSocket 协议来解答这些疑惑。
 
+* TOC
+{:toc}
+
 
 # 1 WebSocket URI
 
@@ -99,7 +102,7 @@ Sec-WebSocket-Accept = base64(
 
 整个流程如下图：
 
-![WebSocket 连接](../asset/image/blog/2017-10-22-WebSocket-principle/001.png)
+![WebSocket 连接](../asset/image/blog/2017-10-22-websocket-principle/001.png)
 
 # 3 数据帧
 
@@ -132,9 +135,9 @@ Sec-WebSocket-Accept = base64(
  +---------------------------------------------------------------+
 ```
 
-![基本帧协议](../asset/image/blog/2017-10-22-WebSocket-principle/003.png))
+![基本帧协议](../asset/image/blog/2017-10-22-websocket-principle/003.png)
 
-![基本帧协议](../asset/image/blog/2017-10-22-WebSocket-principle/004.png))
+![基本帧协议](../asset/image/blog/2017-10-22-websocket-principle/004.png)
 
 - FIN(1 bit): 是否为消息的最后一个数据帧
 - RSV1, RSV2, RSV3(每个1 bit): 必须是0，除非一个扩展协商为非零值定义含义。
@@ -229,7 +232,7 @@ WebSocket 是全双工通信协议，HTTP 是单向的通信协议
 
 对于 WebSocket 来说，它必须依赖 HTTP 协议进行一次握手，握手成功后，数据就直接从 TCP 通道传输，此后就与 HTTP 无关了
 
-![WebSocket、HTTP 与 TCP](../asset/image/blog/2017-10-22-WebSocket-principle/001.png)
+![WebSocket、HTTP 与 TCP](../asset/image/blog/2017-10-22-websocket-principle/001.png)
 
 ## 5.2 WebSocket 与 Scoket 
 
@@ -237,4 +240,4 @@ Scoket 不是一个协议，它是应用层与 TCP/IP 协议族通信的中间�
 
 而 WebScoket 则不同，它是一个完整的应用层协议，包含一整套标准的 API。所以，从使用上来说，WebSocket 更易用，而 Scoket 更灵活。
 
-![Socket](../asset/image/blog/2017-10-22-WebSocket-principle/003.jpg)
+![Socket](../asset/image/blog/2017-10-22-websocket-principle/003.jpg)
