@@ -26,6 +26,11 @@ date: 2017-10-22
 
 通过上面的介绍我们知道 WebSocket 是一种应用层协议，支持全双工通信。但它与 HTTP 有什么关系，以及是怎么实现全双工通信的呢？等等问题。接下来我们主要通过简单的介绍 WebSocket 协议来解答这些疑惑。
 
+这里大概整理了下，详细内容可以查看：
+
+- [The WebSocket Protocol](https://tools.ietf.org/html/rfc6455)
+- [The WebSocket Protocol 翻译](https://chenjianlong.gitbooks.io/rfc-6455-websocket-protocol-in-chinese/content/)
+
 * TOC
 {:toc}
 
@@ -69,15 +74,15 @@ Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 Sec-WebSocket-Protocol: chat
 ```
 
-(1) Upgrade 表示的意思是：客户端准备使用 WebSocket 协议进行通讯，服务端如果支持的话，咱们就换 WebSocket 协议吧！
+(1) `Upgrade` 表示的意思是：客户端准备使用 WebSocket 协议进行通讯，服务端如果支持的话，咱们就换 WebSocket 协议吧！
 
-(2) Sec-WebSocket-Key 是一种验证服务端是不是只是 WebSocket 的验证算法。与服务器端响应中的 Sec-WebSocket-Accept 是对应的。
+(2) `Sec-WebSocket-Key` 是一种验证服务端是不是只是 WebSocket 的验证算法。与服务器端响应中的 Sec-WebSocket-Accept 是对应的。
 
-(3) Sec-WebSocket-Protocol 头字段用于 WebSocket 打开握手。它从客户端发送到服务器，并从服务器返回到客户端，以确认连接的子协议。 这使脚本能够选择子协议，并确保服务器同意服务该子协议。
+(3) `Sec-WebSocket-Protocol` 头字段用于 WebSocket 打开握手。它从客户端发送到服务器，并从服务器返回到客户端，以确认连接的子协议。 这使脚本能够选择子协议，并确保服务器同意服务该子协议。
 
-(4) Sec-WebSocket-Version 是指浏览器支持的 WebSocket 版本号。需要注意的是这里不会出现9~12的版本号，因为 WebSocket 协议规定 9~12 是保留字。
+(4) `Sec-WebSocket-Version` 是指浏览器支持的 WebSocket 版本号。需要注意的是这里不会出现9~12的版本号，因为 WebSocket 协议规定 9~12 是保留字。
 
-(5) Sec-WebSocket-Accept 与 Sec-WebSocket-Key 的对应算法是：
+(5) `Sec-WebSocket-Accept` 与 `Sec-WebSocket-Key` 的对应算法是：
 
 ```
 Sec-WebSocket-Accept = base64(
@@ -87,11 +92,11 @@ Sec-WebSocket-Accept = base64(
 )
 ```
 
-如果返回的 Sec-WebSocket-Accept 不对，在 chrome 下会出现 Sec-WebSocket-Accept dismatch 的错误。
+如果返回的 `Sec-WebSocket-Accept` 不对，在 chrome 下会出现 `Sec-WebSocket-Accept` dismatch 的错误。
 
 (6) HTTP Status: Response 返回的是 101 , 代表服务器端说 ”我们双方后面就按照 webscoket 协议来进行数据传输吧“。
 
-(7) Sec-WebSocket-Extensions 头字段用于 WebSocket 打开握手。 它最初从客户端发送到服务器，然后从服务器发送到客户端，以商定在连接期间使用的一组协议级扩展。
+(7) `Sec-WebSocket-Extensions` 头字段用于 WebSocket 打开握手。 它最初从客户端发送到服务器，然后从服务器发送到客户端，以商定在连接期间使用的一组协议级扩展。
 
 上面介绍了 WebSocket 握手阶段的一些头字段，我们显然也能看出来他还是 HTTP 请求。握手还是经典的三次握手，在这里就不在讨论了。WebSocket 的建立总结如下：
 
@@ -108,7 +113,7 @@ Sec-WebSocket-Accept = base64(
 
 在 WebSocket 协议中，数据通过帧序列来传输。 为避免混淆网络中间件（例如拦截代理）和出于安全原因，客户端必须掩码（mask）它发送到服务器的所有帧（注意不管 WebSocket 协议是否运行在 TLS 至上，掩码都要做。） 当收到一个没有掩码的帧时，服务器必须关闭连接。 在这种情况下，服务器可能发送状态码 1002（协议错误）的Close 帧。 服务器必须不掩码发送到客户端的所有帧。 如果客户端检测到掩码的帧，它必须关闭连接。 在这种情况下，它可能发送状态码1002（协议错误）。
 
-[基本帧协议](https://chenjianlong.gitbooks.io/rfc-6455-websocket-protocol-in-chinese/content/section5/section5.html)定义了带有操作码（opcode）的帧类型、负载长度、和用于“扩展数据”与“应用数据”及它们一起定义的“负载数据”的指定位置。 某些字节和操作码保留用于未来协议的扩展。
+[基本帧协议](https://chenjianlong.gitbooks.io/rfc-6455-websocket-protocol-in-chinese/content/section5/section5.html) 定义了带有操作码（opcode）的帧类型、负载长度、和用于“扩展数据”与“应用数据”及它们一起定义的“负载数据”的指定位置。 某些字节和操作码保留用于未来协议的扩展。
 
 一个数据帧可以被客户端或者服务器在打开阶段握手完成之后和端点发送 Close 帧之前的任何时候传输。
 
@@ -139,9 +144,9 @@ Sec-WebSocket-Accept = base64(
 
 ![基本帧协议](../asset/image/blog/2017-10-22-websocket-principle/004.png)
 
-- FIN(1 bit): 是否为消息的最后一个数据帧
-- RSV1, RSV2, RSV3(每个1 bit): 必须是0，除非一个扩展协商为非零值定义含义。
-- Opcode(4 bits): 定义了“负载数据”的解释（这4位转为16进制值表示的意思如下）
+- `FIN`(1 bit): 是否为消息的最后一个数据帧
+- `RSV1`, `RSV2`, `RSV3`(每个1 bit): 必须是0，除非一个扩展协商为非零值定义含义。
+- `Opcode`(4 bits): 定义了“负载数据”的解释（这4位转为16进制值表示的意思如下）
     - %x0 代表一个继续帧
     - %x1 代表一个文本帧
     - %x2 代表一个二进制帧
@@ -150,15 +155,15 @@ Sec-WebSocket-Accept = base64(
     - %x9 代表ping
     - %xA 代表pong
     - %xB～F 保留用于未来的控制帧
-- Mask(1 bit): 定义 “负载数据”是否是经过掩码的。
-- Payload length(7 bits, 7 + 16 bits, 或者 7+64 bits): 定义  “负载数据”的长度，以字节为单位。
+- `Mask`(1 bit): 定义 “负载数据”是否是经过掩码的。
+- `Payload length`(7 bits, 7 + 16 bits, 或者 7+64 bits): 定义  “负载数据”的长度，以字节为单位。
     - a. 如果数据长度小于等于125，那么该7位用来表示实际数据长度。
     - b. 如果数据长度为126到65535(65535 = 1111111111111111)之间，该7位的值固定为126，也就是1111110。往后扩展两个字节（16位，第三个区块）用于存储实际数据长度。
     - c. 如果数据长度大于65535，该7位的值固定为127，也就是1111111。往后扩展8个字节（64位，第三个区块）用于存储实际数据长度。
-- Masking-key(0 or 4 bytes): 该区块用于存储掩码密钥（masking key），只有在第二字节中的mask为1，也就是消息进行了掩码处理时才有，否则没有。所以服务端向客户端发送消息就没有这块。
-- Payload data [ (x+y) bytes ]: “负载数据”定义为“扩展数据”连接“应用数据”。
-    - Extension data(x bytes): “扩展数据”是 0 字节除非已经协商了一个扩展。 任何扩展必须指定“扩展数据”的长度，或长度是如何计算的，以及扩展如何使用必须在打开阶段握手期间协商。 如果存在，“扩展数据”包含在总负载长度中。
-    - Application data(y bytes): 任意的“应用数据”，占用“扩展数据”之后帧的剩余部分。 “应用数据”的长度等于负载数据长度减去“扩展数据”长度。
+- `Masking-key`(0 or 4 bytes): 该区块用于存储掩码密钥（masking key），只有在第二字节中的mask为1，也就是消息进行了掩码处理时才有，否则没有。所以服务端向客户端发送消息就没有这块。
+- `Payload data` [ (x+y) bytes ]: “负载数据”定义为“扩展数据”连接“应用数据”。
+    - `Extension data`(x bytes): “扩展数据”是 0 字节除非已经协商了一个扩展。 任何扩展必须指定“扩展数据”的长度，或长度是如何计算的，以及扩展如何使用必须在打开阶段握手期间协商。 如果存在，“扩展数据”包含在总负载长度中。
+    - `Application data`(y bytes): 任意的“应用数据”，占用“扩展数据”之后帧的剩余部分。 “应用数据”的长度等于负载数据长度减去“扩展数据”长度。
 
 ## 3.2 客户端到服务器掩码
 
@@ -174,7 +179,7 @@ WebSocket 服务器接收的每个载荷在处理之前首先需要处理掩码�
 
 ## 3.3 分片（Fragmentation）
 
-分片的主要目的是允许当发送一个未知大小的消息时可以直接开始而不用缓存那条消息。如果消息不能被分片，那么端点将不得不缓冲整个消息以便在首字节发送之前统计出它的长度。对于分片，服务器或中间件可以选择一个合适大小的缓冲，当缓冲满时，写一个片段到网络。 
+分片的主要目的是允许当发送一个未知大小的消息时可以直接开始而不用缓存那条消息。如果消息不能被分片，那么端点将不得不缓冲整个消息以便在首字节发送之前统计出它的长度。对于分片，服务器或中间件可以选择一个合适大小的缓冲，当缓冲满时，写一个片段到网络。
 
 第二个分片的用例是用于多路复用，一个逻辑通道上的一个大消息独占输出通道是不可取的，因此多路复用需要可以分割消息为更小的分段来更好的共享输出通道。
 
@@ -218,10 +223,6 @@ WebSocket 服务器接收的每个载荷在处理之前首先需要处理掩码�
 
 扩展可以改变数据如何读的语义，尤其包括什么组成一个消息的边界。 扩展，除了在负载中的“应用数据”之前添加“扩展数据”外，也可以修改“应用数据”（例如压缩它）。
 
-服务器必须按照定义为从客户端接收到的数据帧移除掩码。
-
-WebSocket 服务器可以使用任何普通 HTTP 服务器可用的客户端验证机制，如Cookie，HTTP 验证，或者 TLS 验证
-
 # 5 WebSocket 协议中常见问题
 
 ## 5.1 WebSocket、HTTP 与 TCP
@@ -232,12 +233,14 @@ WebSocket 是全双工通信协议，HTTP 是单向的通信协议
 
 对于 WebSocket 来说，它必须依赖 HTTP 协议进行一次握手，握手成功后，数据就直接从 TCP 通道传输，此后就与 HTTP 无关了
 
-![WebSocket、HTTP 与 TCP](../asset/image/blog/2017-10-22-websocket-principle/001.png)
+![WebSocket、HTTP 与 TCP](../asset/image/blog/2017-10-22-websocket-principle/002.png)
 
-## 5.2 WebSocket 与 Scoket 
+## 5.2 WebSocket 与 Scoket
 
 Scoket 不是一个协议，它是应用层与 TCP/IP 协议族通信的中间软件抽象层，是一组接口。它把复杂的 TCP/IP 协议族隐藏在 Socket 接口后面。对用户来说，一组简单的接口就是全部，让 Socket 去组织数据，以符合指定的协议。
 
 而 WebScoket 则不同，它是一个完整的应用层协议，包含一整套标准的 API。所以，从使用上来说，WebSocket 更易用，而 Scoket 更灵活。
 
 ![Socket](../asset/image/blog/2017-10-22-websocket-principle/003.jpg)
+
+![Socket](../asset/image/blog/2017-10-22-websocket-principle/005.jpg)
