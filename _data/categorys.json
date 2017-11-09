@@ -11,6 +11,7 @@
   {"name": "数据结构", "public": false},
   {"name": "算法", "public": true},
   {"name": "设计模式", "public": false},
+  {"name": "web 通信", "public": true},
   {"name": "web 应用架构设计", "public": true},
   {"name": "web 开发随想录", "public": true},
   {"name": "生活随想录", "public": true},
