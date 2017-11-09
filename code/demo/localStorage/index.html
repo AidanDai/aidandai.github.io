@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>localStorage Limit Test</title>
+	<style type="text/css">
+		body {
+			margin: 200px;
+		}
+		button {
+			display: block;
+			margin: 0 auto;
+			font-size: 36px;
+		}
+		div {
+			margin-top: 40px;
+			text-align: center;
+			font-size: 36px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="test()">start test</button>
+	<div id="output"></div>
+	<script type="text/javascript">
+		var packet = new Array(1025).join("a"), // 1kb
+	        output = document.getElementById("output");
+
+	    function test() {
+            function iterate(index) {
+                try {
+                    localStorage["a" + index] = packet;
+                    setTimeout(() => {
+                    	iterate(index + 1)
+                    }, 0)
+                } catch (error) {
+                    alert("an error occurred at " + index + " kB. " +
+                        "Your browser does not suffer from the problem being tested.")
+                    return;
+                } finally {
+                	showResult(index)
+                }
+            }
+            iterate(0);
+        }
+
+        function showResult(index) {
+        	output.innerHTML = 'localStorage max size: ' + index / 1024 + ' Mb'
+        	+ '<br/>'
+        	+ 'localStorage max size: ' + index + ' kb'
+        }
+	</script>
+</body>
+</html>

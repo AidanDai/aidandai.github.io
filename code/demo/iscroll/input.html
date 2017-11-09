@@ -14,7 +14,11 @@
 var myScroll;
 
 function loaded () {
-	myScroll = new IScroll('#wrapper', { mouseWheel: true });
+	myScroll = new IScroll('#wrapper', { 
+		mouseWheel: true,
+		bounce: false
+	});
+	
 }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -79,7 +83,7 @@ body {
 	bottom: 48px;
 	left: 0;
 	width: 100%;
-	background: #ccc;
+	background: #fff;
 	overflow: hidden;
 }
 
@@ -132,20 +136,17 @@ footer {
 		}
 		input {
 			box-sizing: border-box;
-			height: 60px;
 			width: calc(100vw - 120px);
 			padding-left: 20px;
 			line-height: 60px;
 			border: none;
 		}
 		button {
-			height: 60px;
 			width: 120px;
 			border: none;
 			background-color: #b2e281;
 			padding: 0;
 			margin: 0;
-			line-height: 60px;
 			color: #fff;
 			letter-spacing: 10px;
 		}
@@ -161,7 +162,7 @@ footer {
 
 <div id="wrapper">
 	<div id="scroller">
-		<ul>
+		<ul id="iscroll">
 			<li>Pretty row 1</li>
 			<li>Pretty row 2</li>
 			<li>Pretty row 3</li>

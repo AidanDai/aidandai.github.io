@@ -3,7 +3,6 @@
 <head>
 	<title>ISO Fixed</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no" >
-	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<style type="text/css">
 		html, body {
 			margin: 0;
@@ -16,17 +15,7 @@
 		    right: 0;
 		    top: 0;
 		}
-		h1 {
-			height: 80px;
-			line-height: 80px;
-			margin: 0;
-			padding: 0;
-		}
-		h1, h2 {
-			text-align: center;
-		}
 		footer {
-			display: flex;
 		    position: fixed;
 		    height: 60px;
 		    left: 0;
@@ -36,45 +25,21 @@
 		input {
 			box-sizing: border-box;
 			height: 60px;
-			width: calc(100vw - 120px);
+			width: 100%;
 			padding-left: 20px;
 			line-height: 60px;
 			border: none;
 		}
-		button {
-			height: 60px;
-			width: 120px;
-			border: none;
-			background-color: #b2e281;
-			padding: 0;
-			margin: 0;
-			line-height: 60px;
-			color: #fff;
-			letter-spacing: 10px;
-		}
-		input, button {
-			border-top: 1px solid #b2e281;
-			border-bottom: 1px solid #b2e281;
-			border-radius: 0;
-		}
-		.content {
-			margin: 0;
-		    /* main绝对定位，进行内部滚动 */
-		    position: absolute;
-		    top: 80px;
-		    bottom: 60px;
-		    /* 使之可以滚动 */
-		    overflow-y: scroll;
-		    -webkit-overflow-scrolling: touch;
-		    width: 100vw;
-		}
+                .content {
+                        padding: 80px 0 60px 0;
+                }
 	</style>
 </head>
 <body>
 	<body>
 	    <!-- fixed定位的头部 -->
 	    <header>
-	        <h1>Header</h1>
+	        Header
 	    </header>
 	    
 	    <!-- 可以滚动的区域 -->
@@ -194,23 +159,8 @@
 	    <!-- fixed定位的底部 -->
 	    <footer>
 	        <input id="input" type="text" placeholder="Footer..."/>
-	        <button class="submit">提交</button>
 	    </footer>
 
-	    <script type="text/javascript">
-	    	window.onload = function() {
-				setInterval(function() {
-					var el = document.activeElement
-					if (el.getAttribute('id') === 'input') {
-						$('#input').css('position', 'static')
-						// el.scrollIntoView(true)
-						// el.scrollIntoViewIfNeeded(true)
-					} else {
-						$('#input').css('position', 'fixed')
-					}
-				}, 500)
-	    	}
-		</script>
 	</body>
 </body>
 </html>
