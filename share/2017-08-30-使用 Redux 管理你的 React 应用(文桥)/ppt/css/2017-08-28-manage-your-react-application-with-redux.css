@@ -1,0 +1,65 @@
+.slides slide .slide-wrapper {
+    max-width: 100%;
+    margin: 0 200px;
+}
+
+h1 {
+    margin: 0 0 80px 0;
+}
+
+h2, h3, h4, h5, h6 {
+    margin: 0 0 60px 0;
+}
+
+article ul {
+    float: left;
+}
+
+article ul li {
+    padding: 20px 0;
+}
+
+.user {
+    text-align: right;
+}
+
+.tip {
+    margin: 120px 0 0;
+    text-align: right;
+}
+
+.flux1,
+.flux2,
+.flux3,
+.react-flux,
+.react-redux,
+.redux,
+.immutable {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+}
+
+.flux1 {
+    width: 1200px;
+}
+
+.flux3 {
+    width: 800px;
+}
+
+.flux2 {
+    width: 1200px;
+}
+
+.react-flux {
+    width: 800px;
+}
+
+.react-redux {
+    width: 600px;
+}
+
+.redux {
+    width: 1200px;
+}

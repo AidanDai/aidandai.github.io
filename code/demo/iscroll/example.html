@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>iScroll demo: simple</title>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../../asset/vendor/iscroll/build/iscroll.js"></script>
+
+<style type="text/css">
+* { -moz-box-sizing: border-box; 
+    -webkit-box-sizing:  border-box; 
+    box-sizing: border-box; 
+}
+html,body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+header,section,footer{
+    position:fixed;
+    display:block;
+    left:0;
+    width:100%;
+    height:50px;
+    background:#efefef;
+}
+
+header{
+    top:0;  
+    padding:5px;
+}
+footer{
+    bottom:0;  
+    padding: 0;
+}
+footer input {
+	height: 100%;
+	width: 100%;
+}
+section{
+    top:50px;
+    bottom:50px;
+    background:#fff;    
+    overflow:hidden;  
+    height:auto;
+}
+
+article{
+    display:block;
+    width:100%;
+    position:relative;
+}
+
+article p{
+    display:block;
+    border-bottom:1px solid #fafafa;
+    line-height:40px;
+    margin:0;
+}
+
+
+
+
+/* ISCROLL SETTINGS */
+.scroll-wrap {
+	position:relative;
+    /*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	float:left;
+	width:100%;
+	padding:0;
+}
+</style>
+</head>
+<body>
+<header>Header</header>
+<section id="page" class="scroll">
+    <article class="scroll-wrap">
+        
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+         <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+         <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+         <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+         <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+        <p> Bla bla</p>
+     
+    </article>
+</section>
+<footer>
+    <input type="text" id="footer-input" placeholder="Type here"/>
+</footer>
+<script type="text/javascript">
+var focusedInput = false;
+
+
+var pageScroll= new IScroll($('#page')[0],{
+      onBeforeScrollStart: function (e) {
+          var nodeType = e.explicitOriginalTarget ? e.explicitOriginalTarget.nodeName.toLowerCase():(e.target ? e.target.nodeName.toLowerCase():'');             
+          if(nodeType !='select' && nodeType !='option' && nodeType !='input' && nodeType!='textarea'&& nodeType!='canvas') { e.preventDefault();  }            
+        },
+         onScrollEnd: function (e) {
+           if (focusedInput !== "") focusedInput.trigger('blur');
+        }          
+                            
+     });
+
+console.log(pageScroll);
+
+$('input, textarea, select').on('focus', function () {
+    console.log("input focus");
+    $('footer').css({'position':'absolute'});
+        focusedInput = $(this);
+        refreshPageScroll(0);
+  }).blur(function () { 
+    console.log("input blur");
+      $('footer').css({'position':'fixed'});
+	//	refreshPageScroll(100) ;
+});
+
+
+
+// refresh scroller
+function refreshPageScroll(mseconds) {
+ var timedelay = mseconds ? mseconds : 0;  
+ setTimeout(function () { pageScroll.refresh();  }, timedelay);
+}
+
+</script>
+</body>
+</html>
