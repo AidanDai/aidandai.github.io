@@ -353,14 +353,14 @@ footer .simply-links a:hover {
   color: #f92672;
   font-weight: 900;
 }
-.blog-main article img {
+.blog-main article p img {
   display: block;
   width: auto;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
 }
-.blog-main article img[title="group-picture"] {
+.blog-main article p img[title="group-picture"] {
   display: inline-block;
 }
 .blog-main article blockquote {
