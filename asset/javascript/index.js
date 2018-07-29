@@ -13,9 +13,9 @@ $('document').ready(function(){
 		$(a).attr('target', '_self')
 	})
 	$(gt).on('click', function(){
-		$(body).scrollTop(0)
+		$(document).scrollTop(0)
 	})
 	$(gb).on('click', function(){
-		$(body).scrollTop($(document).height())
+		$(document).scrollTop($(document).height())
 	})
 })
