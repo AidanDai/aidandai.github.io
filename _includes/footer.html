@@ -4,12 +4,16 @@
 	  {% if site.github_username %} 
 	    <a href="https://github.com/{{ site.github_username }}" alt="Github"><i class="fa fa-github" aria-hidden="true"></i></a> 
 	  {% endif %} 
-	  {% if site.weibo_username %} 
-	     <a href="https://weibo.com/{{ site.weibo_username }}" alt="Github"><i class="fa fa-weibo" aria-hidden="true"></i></a> 
-	  {% endif %}
+	  {% if site.twitter_username %}
+	     <a href="https://twitter.com/{{ site.twitter_username }}" alt="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+		{% endif %}
+		{% if site.weibo_username %}
+			<a href="https://weibo.com/{{ site.weibo_username }}" alt="weibo">
+				<i class="fa fa-weibo" aria-hidden="true"></i>
+			</a>
+		{% endif %}
 	</nav>
   <p class="copyright">Copyright &copy;  Aidan {{ site.time | date: '%Y' }}</p>
-	<p class="power">Theme by <a href="https://github.com/AidanDai/aidan-pw">aidan-pw</a></p>  
 </footer>
 <!-- Footer -->
 

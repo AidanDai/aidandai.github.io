@@ -28,18 +28,16 @@ owner:
 # Social networking links used in footer. Update and remove as you like.
 github_username: AidanDai
 weibo_username: webAidan
-zhihu_username: Aidan
-segmentfault_username: Aidan
 twitter_username: AidanDai
 
 # Internal nav
 nav:
   blog: "/blog/"
-  code: "/code/"
-  like: "/like/"
+#  code: "/code/"
+#  like: "/like/"
   about: "/about/"
-  wiki: "/wiki/"
-  resume: "/resume/"
+#  wiki: "/wiki/"
+#  resume: "/resume/"
 
 router:
   category: "/blog/category.html"
@@ -100,6 +98,6 @@ google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 exclude: [node_modules, gulpfile.js]

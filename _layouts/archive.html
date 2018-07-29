@@ -16,6 +16,7 @@ layout: default
 				<a href="{{ post.url }}" title="{{ post.title }}" target="_self">{{ post.title }}</a>
 			<p>	
 		{% endfor %}
+		{% include comment.html %}
 	</article>
 	{% include blog-aside.html %}
 </div>

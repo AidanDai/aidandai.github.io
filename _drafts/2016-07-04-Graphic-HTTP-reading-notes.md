@@ -631,7 +631,7 @@ accept: 100-continue
 ![from](/assets/images/writing/2016-07-04-Graphic-HTTP-reading-notes/2016-07-16_130018.png)
 
 ```
-from: aidandai@126.com
+from: webaidandai@gmail.com
 ```
 
 ### 6.3.8 host
