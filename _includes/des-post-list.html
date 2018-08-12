@@ -1,3 +1,4 @@
+<script id="dsq-count-scr" src="//aidans-personal-website.disqus.com/count.js" async></script>
 <ul class="post-list">
 	<!-- 遍历分页后的文章 -->
 	{% for post in paginator.posts %}
@@ -25,7 +26,10 @@
 				</span>
 			</p>
 			<p class="post-des">{{ post.excerpt }}</p>
-			<p><a  href="{{ post.url }}" target="_self">阅读全文 >></a></p>
+			<p>
+				<a  href="{{ post.url }}" target="_self">阅读全文 >></a>
+				<a href="{{ post.url }}#disqus_thread">评论数</a>
+			</p>
 		</li>
 	{% endfor %}
 </ul>
