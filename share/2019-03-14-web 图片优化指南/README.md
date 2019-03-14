@@ -5,21 +5,21 @@ prismTheme: dark
 
 <slide>
 # web 图片优化指南
-<div class="user">文桥　2017/08/28</div>
+<div class="user">Aidan　2019/03/14</div>
 
 <slide>
 # 1. 先介绍几个图片的基础知识
-
---------------
---------------
-- [1.1 图像分类](/#slide=3)
-- [1.2 图像基本数据结构](/#slide=4)
-- [1.4 色彩空间(color space)](/#slide=5)
-- [1.5 色彩模型(color model)](/#slide=6)
-- [1.6 颜色深度(color depth)](/#slide=7)
-- [1.7 图像模式(color modes)](/#slide=8)
---------------
---------------
+<br/>
+<br/>
+<br/>
+<br/>
+- [1.1 图像分类](/#slide=3){.fadeInLeft}
+- [1.2 图像基本数据结构](/#slide=4){.fadeInLeft}
+- [1.4 色彩空间(color space)](/#slide=5){.fadeInLeft}
+- [1.5 色彩模型(color model)](/#slide=6){.fadeInLeft}
+- [1.6 颜色深度(color depth)](/#slide=7){.fadeInLeft}
+- [1.7 图像模式(color modes)](/#slide=8){.fadeInLeft}
+    {.build}
 
 <slide>
 ## 1.1 图像分类
