@@ -13,4 +13,4 @@ $(function () {
         // reload all Magic Thumb images
         MagicThumb.refresh();
     });
-})
+});

@@ -23,7 +23,7 @@ owner:
   #email: webaidandai@gmail.com
   #avatar: avatar.jpg
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description: Front-end Engineer
+  description: Web Developer
 
 # Social networking links used in footer. Update and remove as you like.
 github_username: AidanDai
@@ -35,6 +35,7 @@ nav:
   blog: "/blog/"
 #  code: "/code/"
 #  like: "/like/"
+  share: "/share/"
   about: "/about/"
 #  wiki: "/wiki/"
 #  resume: "/resume/"
@@ -93,10 +94,10 @@ exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 slugify: "pretty"
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   UA-xxxxxxxx-x
-google_verify:      
+# google_analytics:   UA-xxxxxxxx-x
+# google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+# bing_verify:
 
 plugins: [jekyll-paginate]
 

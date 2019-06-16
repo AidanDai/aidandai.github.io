@@ -8,5 +8,6 @@
 ```bash
 npm install && npm install -g gulp-cli
 
-gulp
+gulp styles
+jekyll serve
 ```

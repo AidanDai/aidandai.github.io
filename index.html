@@ -3,7 +3,7 @@ layout: home
 ---
 
 <!-- main contain -->
-<article class="home-contain">
+<article class="home-contain" style="background-image: url('')">
 	<div>
 		<h1>
 			<a href="/" target="_self">Aidan's personal website</a>
@@ -26,8 +26,11 @@ layout: home
 			<a href="https://twitter.com/AidanDai" target="_blank">
 				<i class="fa fa-twitter" aria-hidden="true"></i>
 			</a> /
-			<a href="http://weibo.com/webAidan/" target="_blank">
+			<a href="https://weibo.com/webAidan" target="_blank">
 				<i class="fa fa-weibo" aria-hidden="true"></i>
+			</a> /
+			<a href="/feed.xml" target="_blank">
+				<i class="fa fa-rss" aria-hidden="true"></i>
 			</a>
 		</p>
 		<p class="concat"><a href="/about/" target="_self">concat</a> | aidandai.com</p>
@@ -35,20 +38,25 @@ layout: home
 </article>  
 <!-- main contain -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.4/randomColor.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js" integrity="sha256-TTf75IvJ/GJN5SlItBhDzKHkVw+kDI5KkvsOwYhmKn0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ '/asset/vendor/unsplash-js/4.5.3/unsplash.min.js' | prepend: site.baseurl }}"></script>
 <script type="text/javascript">
-	function homeBackgroundImage(){
-		var home = document.querySelector(".home-contain");
+	var unsplash = new Unsplash.default({
+		applicationId: "7a5a73e025f345de7e424835cc1197bfeb3aa219488c4c38936fd40ae9040df0",
+		secret: "34cde276e2e99005ff75cfb200ff0a4fccd84857572d44d5d24f9357279efc75",
+		callbackUrl: "urn:ietf:wg:oauth:2.0:oob"
+	});
+	unsplash.photos.getRandomPhoto({ width: window.innerWidth, height: window.innerHeight, query: 'Nature', featured: true, count: 1 })
+		.then(Unsplash.toJson)
+		.then(function(data) {
+			var url = data[0] && data[0].urls.full;
 
-		home.style.backgroundImage = `linear-gradient(to right, ${randomColor({luminosity: 'light'})} 0%, ${randomColor({luminosity: 'light'})} 100%)`;
-	}
-
-	homeBackgroundImage();
+			$('.home-contain')[0].style.backgroundImage = 'url(' + url + ')';
+		});
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122987729-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js/g.js?id=UA-122987729-1"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag() { dataLayer.push(arguments); }
