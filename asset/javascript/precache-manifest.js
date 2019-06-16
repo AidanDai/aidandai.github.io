@@ -1,12 +1,12 @@
 self.__precacheManifest = [
-    {
-        "revision": "1.0.0",
-        "url": "https://aidans-personal-website.disqus.com/count.js",
-    }, 
-    {
-        "revision": "1.0.0",
-        "url": "https://aidans-personal-website.disqus.com/embed.js",
-    }, 
+    // {
+    //     "revision": "1.0.0",
+    //     "url": "https://aidans-personal-website.disqus.com/count.js",
+    // }, 
+    // {
+    //     "revision": "1.0.0",
+    //     "url": "https://aidans-personal-website.disqus.com/embed.js",
+    // }, 
     {
         "revision": "1.0.0",
         "url": "/asset/javascript/index.js",
@@ -35,10 +35,10 @@ self.__precacheManifest = [
         "revision": "1.4.2",
         "url": "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js",
     }, 
-    {
-        "revision": "2.0",
-        "url": "https://bdimg.share.baidu.com/static/api/js/share.js",
-    },
+    // {
+    //     "revision": "2.0",
+    //     "url": "https://bdimg.share.baidu.com/static/api/js/share.js",
+    // },
     {
         "revision": "1.0.0",
         "url": "/asset/vendor/magicthumb/magicthumb.css",
@@ -63,14 +63,14 @@ self.__precacheManifest = [
         "revision": "4.5.3",
         "url": "/asset/vendor/unsplash-js/4.5.3/unsplash.min.js",
     },
-    {
-        "revision":   "1.0.0",      
-        "url": "https://www.googletagmanager.com/gtag/js/g.js",
-    },
-    {
-        "revision":   "1.0.0",      
-        "url": "https://www.google-analytics.com/analytics.js",
-    },
+    // {
+    //     "revision":   "1.0.0",      
+    //     "url": "https://www.googletagmanager.com/gtag/js/g.js",
+    // },
+    // {
+    //     "revision":   "1.0.0",      
+    //     "url": "https://www.google-analytics.com/analytics.js",
+    // },
     {
         "revision":   "1.0.0",      
         "url": "/favicon.ico",
