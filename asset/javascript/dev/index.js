@@ -20,26 +20,32 @@
 // })
 
 window.addEventListener('DOMContentLoaded', function() {
-	var as = document.querySelectorAll('#markdown-toc a');
+	var allA = document.querySelectorAll('#markdown-toc a');
 	var gt = document.querySelector('.go-top');
 	var gb = document.querySelector('.go-bottom');
 
-	as.forEach(function (a) {
-		a.setAttribute('target', '_self');
-	});
+	if (allA) {
+		allA.forEach(function (a) {
+			a.setAttribute('target', '_self');
+		});
+	}
 
-	gt.addEventListener('click', function() {
-		document.documentElement.scrollTop = 0;
-	});
-
-	gb.addEventListener('click', function () {
-		document.documentElement.scrollTop = document.documentElement.scrollHeight;
-	});
+	if (gt) {
+		gt.addEventListener('click', function () {
+			document.documentElement.scrollTop = 0;
+		});
+	}
+	
+	if (gb) {
+		gb.addEventListener('click', function () {
+			document.documentElement.scrollTop = document.documentElement.scrollHeight;
+		});
+	}
 });
 
 if ('serviceWorker' in navigator) {
 	// Use the window load event to keep the page load performant
 	window.addEventListener('load', function serviceWorkerRegister(){
-		navigator.serviceWorker.register('/assets/javascript/service-worker.js');
+		navigator.serviceWorker.register('/asset/javascript/service-worker.js');
 	});
 }
