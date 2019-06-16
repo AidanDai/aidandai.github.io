@@ -50,10 +50,12 @@ layout: home
 		.then(Unsplash.toJson)
 		.then(function(data) {
 			var url = data[0] && data[0].urls.full;
+			var container = document.querySelector('.home-contain');
 
-			$('.home-contain')[0].style.backgroundImage = 'url(' + url + ')';
+			container.style.backgroundImage = 'url(' + url + ')';
 		});
 </script>
+<script type="text/javascript" src="{{ '/asset/javascript/index.js' | prepend: site.baseurl }}"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js/g.js?id=UA-122987729-1"></script>
