@@ -6,8 +6,8 @@ if (workbox) {
     importScripts(
         '/asset/javascript/precache-manifest.js',
     );
+    workbox.googleAnalytics.initialize();
     workbox.core.skipWaiting();
-
     workbox.core.clientsClaim();
 
     /**

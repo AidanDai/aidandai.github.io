@@ -37,6 +37,16 @@ layout: home
 	</div>
 </article>  
 <!-- main contain -->
+<script type="text/javascript">
+	var	lastBgUrl = localStorage.getItem('HOME_BG');
+	
+	if (lastBgUrl) {
+		var container = document.querySelector('.home-contain');
+
+		container.style.backgroundImage = 'url(' + lastBgUrl + ')';
+		container.style.backgroundSize = 'contain';
+	}
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js" integrity="sha256-TTf75IvJ/GJN5SlItBhDzKHkVw+kDI5KkvsOwYhmKn0=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ '/asset/vendor/unsplash-js/4.5.3/unsplash.min.js' | prepend: site.baseurl }}"></script>
@@ -49,16 +59,29 @@ layout: home
 	unsplash.photos.getRandomPhoto({ width: window.innerWidth, height: window.innerHeight, query: 'Nature', featured: true, count: 1 })
 		.then(Unsplash.toJson)
 		.then(function(data) {
-			var url = data[0] && data[0].urls.full;
-			var container = document.querySelector('.home-contain');
+			var url = data[0] && data[0].urls.custom;
+			var bgUrl = url.replace('&q=80', '&q=40').replace(`&w=${window.innerWidth}&h=${window.innerHeight}`, `&w=${window.innerWidth / 2}&h=${window.innerHeight / 2}`);
+			var lastBgUrl = localStorage.getItem('HOME_BG');
+			var isStorageBgUrl = localStorage.getItem('IS_STORAGE_HOME_BG');
 
-			container.style.backgroundImage = 'url(' + url + ')';
+			if (!isStorageBgUrl) {
+				localStorage.setItem('IS_STORAGE_HOME_BG', true);
+			} 
+			
+			if (!lastBgUrl) {
+				var container = document.querySelector('.home-contain');
+
+				container.style.backgroundImage = 'url(' + bgUrl + ')';
+				container.style.backgroundSize = 'contain';
+			}
+			
+			localStorage.setItem('HOME_BG', bgUrl);
 		});
 </script>
-<script type="text/javascript" src="{{ '/asset/javascript/index.js' | prepend: site.baseurl }}"></script>
+<script async type="text/javascript" src="{{ '/asset/javascript/index.js' | prepend: site.baseurl }}"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122987729-1"></script>
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=UA-122987729-1"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag() { dataLayer.push(arguments); }
