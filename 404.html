@@ -37,4 +37,27 @@
 <body>
 	<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homePageUrl="https://www.aidandai.com/" homePageName="回到我的主页"></script>
 </body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=UA-122987729-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-122987729-1');
+</script>
+
+<!-- Sentry -->
+<script src="https://js-de.sentry-cdn.com/0dfd22fff2a7051e8c2beac9cbe6ad1b.min.js" crossorigin="anonymous"></script>
+<script>
+  Sentry.onLoad(function() {
+    Sentry.init({
+        // Tracing
+        tracesSampleRate: 1.0, // Capture 100% of the transactions
+        // Session Replay
+        replaysSessionSampleRate: 1.0, // This sets the sample rate at 100%. You may want to change it to 100% while in development and then sample at a lower rate in production.
+        replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
+      });
+  });
+</script>
 </html>
